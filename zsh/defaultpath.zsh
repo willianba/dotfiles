@@ -1,0 +1,1 @@
+cd /mnt/d/ARQUIVOS
