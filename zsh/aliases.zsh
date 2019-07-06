@@ -1,0 +1,7 @@
+alias node='nodejs'
+alias gs='git status '
+alias ga='git add '
+alias gb='git branch '
+alias gc='git commit -m '
+alias gd='git diff'
+alias go='git checkout '
