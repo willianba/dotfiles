@@ -1,4 +1,4 @@
-export ZSH="/home/willianba/.oh-my-zsh"
+export ZSH="/home/$USER/.oh-my-zsh"
 ZSH_THEME="powerlevel10k/powerlevel10k"
 ZSH_DISABLE_COMPFIX=true
 plugins=(git fast-syntax-highlighting zsh-autosuggestions)
