@@ -2,7 +2,7 @@
 Import-Module posh-git
 Import-Module oh-my-posh
 Import-Module Terminal-Icons
-Set-Theme Sorin
+Set-PoshPrompt Sorin
 
 # Aliases
 function k([Parameter(ValueFromRemainingArguments = $true)]$params) { & kubectl $params }
