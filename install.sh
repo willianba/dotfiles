@@ -20,7 +20,7 @@ git clone https://github.com/zdharma/fast-syntax-highlighting.git $OHMYZSH_CUSTO
 
 echo "Install apps"
 brew install docker --cask
-brew install neovim
+brew install neovim ripgrep fd
 
 echo "Install NvChad"
 git clone https://github.com/NvChad/NvChad $NVIM_PATH --depth 1
