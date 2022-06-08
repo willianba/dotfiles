@@ -6,9 +6,6 @@ M.plugins = {
   options = {
     lspconfig = {
       setup_lspconf = 'custom.plugins.lspconfig'
-    },
-    telescope = {
-      extensions = { "themes", "terms", "project" }
     }
   },
   override = {
@@ -26,8 +23,8 @@ M.options = {
 }
 
 M.ui = {
-  theme_toggle = { 'palenight', 'doomchad' },
-  theme = "palenight"
+  theme_toggle = { 'doomchad', 'catppuccin' },
+  theme = "doomchad"
 }
 
 M.mappings = require 'custom.core.mappings'
