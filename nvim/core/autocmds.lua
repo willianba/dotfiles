@@ -11,3 +11,9 @@ autocmd('InsertLeave', {
     vim.opt.relativenumber = true
   end
 })
+
+autocmd('BufWritePre', {
+  pattern = '*',
+  command = 'lua vim.lsp.buf.formatting_sync()'
+})
+
