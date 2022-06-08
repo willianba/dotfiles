@@ -52,4 +52,8 @@ M.treesitter = {
   }
 }
 
+M.telescope = {
+  extensions_list = { "themes", "terms", "workspaces" }
+}
+
 return M
