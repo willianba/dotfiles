@@ -1,37 +1,66 @@
 -- this file tracks new and replaced plugins
 
 return {
-   ["goolord/alpha-nvim"] = {
-    disable = false,
-      config = function()
-        require "plugins.configs.alpha"
-      end,
+  ["goolord/alpha-nvim"] = {
+    disable = false
   },
-  ["EdenEast/nightfox.nvim"] = {},
-  ["pineapplegiant/spaceduck"] = {
-    branch = "main",
+  ["natecraddock/workspaces.nvim"] = {
+    config = function ()
+      local present, workspaces = pcall(require, 'workspaces')
+
+      if present then
+        workspaces.setup {
+          open = { "NVimTreeRefresh" }
+        }
+      end
+    end
   },
-  ["nvim-telescope/telescope-project.nvim"]= {
-    after = 'telescope.nvim',
+  ["airblade/vim-gitgutter"] = {
+    config = function ()
+      vim.g.gitgutter_signs = 0
+    end,
+    setup = function ()
+      require('core.utils').packer_lazy_load 'vim-gitgutter'
+    end
+  },
+  ["APZelos/blamer.nvim"] = {
+    config = function ()
+      vim.g.blamer_enabled = 1
+    end,
+    setup = function ()
+      require('core.utils').packer_lazy_load 'blamer.nvim'
+    end
+  },
+  ["folke/trouble.nvim"] = {
+    config = function ()
+      local present, trouble = pcall(require, 'trouble.nvim')
+
+      if present then
+        trouble.setup {}
+      end
+    end,
+    setup = function ()
+      require('core.utils').packer_lazy_load 'trouble.nvim'
+    end
   },
   ["nvim-treesitter/nvim-treesitter-context"] = {
     after = 'nvim-treesitter',
     config = function()
-      local present, ts_context = pcall(require, 'nvim-treesitter-context')
+      local present, ts_context = pcall(require, 'treesitter-context')
 
       if present then
-        ts_context.setup()
+        ts_context.setup {}
       end
     end,
     setup = function ()
       require('core.utils').packer_lazy_load 'nvim-treesitter-context'
     end
   },
-  ["tpope/vim-endwise"] = {
-    setup = function ()
-      require('core.utils').packer_lazy_load 'vim-endwise'
-    end
-  },
+  -- ["tpope/vim-endwise"] = { -- not working https://github.com/nvim-treesitter/nvim-treesitter/issues/703
+  --   setup = function ()
+  --     require('core.utils').packer_lazy_load 'vim-endwise'
+  --   end
+  -- },
   ["tpope/vim-surround"] = {
     setup = function ()
       require('core.utils').packer_lazy_load 'vim-surround'
@@ -50,25 +79,17 @@ return {
   },
   ["windwp/nvim-ts-autotag"] = {
     after = 'nvim-treesitter',
-    config = function ()
-      local present, autotag = pcall(require, 'nvim-ts-autotag')
-
-      if present then
-        autotag.setup()
-      end
-    end,
     setup = function ()
       require('core.utils').packer_lazy_load 'nvim-ts-autotag'
     end
   },
   ["karb94/neoscroll.nvim"] = {
     config = function()
-      local present, neoscroll = pcall(require, 'neoscroll.nvim')
+      local present, neoscroll = pcall(require, 'neoscroll')
 
       if present then
-        neoscroll.setup()
+        neoscroll.setup {}
       end
-      require "neoscroll".setup {}
     end,
     setup = function()
       require('core.utils').packer_lazy_load 'neoscroll.nvim'
