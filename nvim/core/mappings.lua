@@ -6,9 +6,13 @@ local M = {}
 
 M.disabled = {
   n = {
-    ["<leader>n"] = { "<cmd> set nu! <CR>", "   toggle line number" },
-    ["<leader>rn"] = { "<cmd> set rnu! <CR>", "   toggle relative number" },
-    ["<C-n>"] = { "<cmd> NvimTreeToggle <CR>", "   toggle nvimtree" },
+    "<C-n>",
+    "<C-b>",
+    "<leader>n",
+    "<leader>rn",
+    "<leader>wa",
+    "<leader>wr",
+    "<leader>wl"
   }
 }
 
@@ -17,7 +21,7 @@ M.general = {
     ["jk"] = { termcodes "<C-\\><C-N>", "   escape terminal mode" },
   },
   n = {
-    ["<leader>tr"] = {"<cmd>TroubleToggle<CR>", "  toggle trouble diagnostics"},
+    ["<leader>tr"] = {"<cmd>TroubleToggle<CR>", "   trouble diagnostics"},
     ["<leader>gd"] = {"<cmd>GitGutterDiffOrig<CR>", "  activate git diff"},
     ["<leader>gf"] = {"<cmd>GitGutterFold<CR>", "  toggle changes fold"}
   }
@@ -26,23 +30,31 @@ M.general = {
 M.comment = {
   n = {
     ["gcc"] = {
-      function()
-        require("Comment.api").toggle_current_linewise()
-      end,
-      "蘒  toggle comment",
+      "<ESC><cmd>lua require('Comment.api').toggle_current_linewise()<CR>",
+      "Toggle line comment"
     }
   },
   v = {
-      ["gcc"] = {
-        "<ESC><cmd>lua require('Comment.api').toggle_linewise_op(vim.fn.visualmode())<CR>",
-        "蘒  toggle comment",
-      },
+    ["gcc"] = {
+      "<ESC><cmd>lua require('Comment.api').toggle_linewise_op(vim.fn.visualmode())<CR>",
+      "Toggle line comment"
+    }
+  }
+}
+
+M.workspaces = {
+  n = {
+    ["<leader>wa"] = { "<Cmd>WorkspacesAdd<CR>", "   add workspace folder" },
+    ["<leader>wr"] = {"<Cmd>WorkspacesRemove<CR>", "  remove workspace folder" },
+    ["<leader>wl"] = { "<Cmd>WorkspacesList<CR>", "   list workspace folders" },
+    ["<leader>wo"] = { "<Cmd>WorkspacesOpen<CR>", "  open workspace folder" },
+    ["<leader>tw"] = { "<Cmd>Telescope workspaces<CR>", "  open workspaces picker" }
   }
 }
 
 M.nvimtree = {
   n = {
-    ["<C-b>"] = { "<cmd> NvimTreeToggle <CR>", "   toggle nvimtree" },
+    ["<C-b>"] = { "<cmd>NvimTreeToggle<CR>", "   toggle nvimtree" },
   }
 }
 
