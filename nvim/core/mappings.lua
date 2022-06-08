@@ -15,6 +15,11 @@ M.disabled = {
 M.general = {
   t = {
     ["jk"] = { termcodes "<C-\\><C-N>", "   escape terminal mode" },
+  },
+  n = {
+    ["<leader>tr"] = {"<cmd>TroubleToggle<CR>", "  toggle trouble diagnostics"},
+    ["<leader>gd"] = {"<cmd>GitGutterDiffOrig<CR>", "  activate git diff"},
+    ["<leader>gf"] = {"<cmd>GitGutterFold<CR>", "  toggle changes fold"}
   }
 }
 
@@ -38,12 +43,6 @@ M.comment = {
 M.nvimtree = {
   n = {
     ["<C-b>"] = { "<cmd> NvimTreeToggle <CR>", "   toggle nvimtree" },
-  }
-}
-
-M.telescope = {
-  n = {
-    ["<leader>fk"] = { "<cmd> Telescope keymaps <CR>", "   show keys" },
   }
 }
 
