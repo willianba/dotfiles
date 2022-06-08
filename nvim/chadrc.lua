@@ -1,4 +1,4 @@
-local pluginConfigs = require 'custom.plugins.configs'
+local overrides = require 'custom.plugins.overrides'
 
 local M = {}
 
@@ -9,9 +9,10 @@ M.plugins = {
     }
   },
   override = {
-    ['kyazdani42/nvim-tree.lua'] = pluginConfigs.nvimtree,
-    ['nvim-treesitter/nvim-treesitter'] = pluginConfigs.treesitter,
-    ['nvim-telescope/telescope.nvim'] = pluginConfigs.telescope,
+    ['kyazdani42/nvim-tree.lua'] = overrides.nvimtree,
+    ['nvim-treesitter/nvim-treesitter'] = overrides.treesitter,
+    ['nvim-telescope/telescope.nvim'] = overrides.telescope,
+    ['NvChad/nvterm'] = overrides.nvterm
   },
   user = require 'custom.plugins'
 }
