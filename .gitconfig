@@ -3,3 +3,5 @@
   email = wba.alves@gmail.com
   username = willianba
 
+[credential]
+  helper = store
