@@ -6,20 +6,21 @@ M.nvimtree = {
   git = {
     enable = true
   },
+  view = {
+    adaptive_size = true,
+    width = 35,
+  },
   renderer = {
     group_empty = true,
     highlight_git = true,
     icons = {
-       show = {
+      show = {
         git = true,
       }
     }
   },
   filters = {
     dotfiles = false,
-  },
-  view = {
-    width = 35,
   },
   diagnostics = {
     enable = false,
