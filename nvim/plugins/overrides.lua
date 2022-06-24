@@ -19,7 +19,7 @@ M.nvimtree = {
     dotfiles = false,
   },
   view = {
-    width = 30,
+    width = 35,
   },
   diagnostics = {
     enable = false,
