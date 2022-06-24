@@ -24,6 +24,9 @@ M.general = {
     ["<leader>tr"] = {"<cmd>TroubleToggle<CR>", "   trouble diagnostics"},
     ["<leader>gd"] = {"<cmd>GitGutterDiffOrig<CR>", "  activate git diff"},
     ["<leader>gf"] = {"<cmd>GitGutterFold<CR>", "  toggle changes fold"}
+  },
+  i = {
+    ["jk"] = { "<ESC>", "  escape insert mode" },
   }
 }
 
