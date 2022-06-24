@@ -38,7 +38,6 @@ M.treesitter = {
     "bash",
     "html",
     "css",
-    "java",
     "ruby",
     "go",
     "graphql",
