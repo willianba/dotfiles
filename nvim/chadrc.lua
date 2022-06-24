@@ -24,7 +24,7 @@ M.options = {
 }
 
 M.ui = {
-  theme_toggle = { 'doomchad', 'catppuccin' },
+  theme_toggle = { 'doomchad', 'everforest_light' },
   theme = "doomchad"
 }
 
