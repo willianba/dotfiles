@@ -42,4 +42,20 @@ M.neoscroll = function()
   end
 end
 
+M.null_ls = function ()
+  local present, null_ls = pcall(require, 'null-ls')
+
+  if present then
+    local sources = {
+      null_ls.builtins.diagnostics.eslint,
+      null_ls.builtins.code_actions.eslint,
+      null_ls.builtins.formatting.prettier
+    }
+
+    null_ls.setup {
+      sources = sources
+    }
+  end
+end
+
 return M

@@ -6,7 +6,8 @@ return {
     disable = false
   },
   ["jose-elias-alvarez/null-ls.nvim"] = {
-    after = "nvim-lspconfig"
+    after = "nvim-lspconfig",
+    config = configs.null_ls
   },
   ["natecraddock/workspaces.nvim"] = {
     after = "nvim-treesitter",

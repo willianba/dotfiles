@@ -14,6 +14,8 @@ autocmd('InsertLeave', {
 
 autocmd('BufWritePre', {
   pattern = '*',
-  command = 'lua vim.lsp.buf.formatting_sync()'
+  callback = function ()
+    vim.lsp.buf.formatting_sync()
+  end
 })
 
