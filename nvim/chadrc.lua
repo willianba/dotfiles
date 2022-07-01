@@ -9,6 +9,7 @@ M.plugins = {
     }
   },
   override = {
+    ['hrsh7th/nvim-cmp'] = overrides.cmp,
     ['kyazdani42/nvim-tree.lua'] = overrides.nvimtree,
     ['nvim-treesitter/nvim-treesitter'] = overrides.treesitter,
     ['nvim-telescope/telescope.nvim'] = overrides.telescope,

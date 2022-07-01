@@ -58,4 +58,33 @@ M.null_ls = function ()
   end
 end
 
+M.null_ls = function ()
+  local present, null_ls = pcall(require, 'null-ls')
+
+  if present then
+    local sources = {
+      --  js, ts
+      null_ls.builtins.diagnostics.eslint,
+      null_ls.builtins.code_actions.eslint,
+      null_ls.builtins.formatting.prettier,
+
+      --- go
+      null_ls.builtins.diagnostics.staticcheck,
+      null_ls.builtins.formatting.gofmt,
+
+      --- lua
+      null_ls.builtins.diagnostics.luacheck,
+      null_ls.builtins.formatting.stylua,
+
+      --- ruby
+      null_ls.builtins.diagnostics.rubocop,
+      null_ls.builtins.formatting.rubocop,
+    }
+
+    null_ls.setup {
+      sources = sources
+    }
+  end
+end
+
 return M
