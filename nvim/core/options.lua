@@ -12,6 +12,9 @@ opt.scrolloff = 8
 
 opt.smartcase = false
 
+opt.foldmethod = 'indent'
+opt.foldenable = false
+
 opt.list = true
 opt.listchars:append('space:⋅')
 opt.listchars:append('tab:>-')
