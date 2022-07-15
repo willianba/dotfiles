@@ -1,12 +1,13 @@
 local opt = vim.opt
 
-opt.cmdheight = 2
 opt.relativenumber = true
+opt.cmdheight = 2
 opt.numberwidth = 2
 
-opt.smarttab = true
-opt.softtabstop = 2
+opt.expandtab = true
 opt.tabstop = 2
+opt.softtabstop = 0
+opt.shiftwidth = 0
 
 opt.scrolloff = 8
 
