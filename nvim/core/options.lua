@@ -13,6 +13,8 @@ opt.scrolloff = 8
 
 opt.smartcase = false
 
+opt.cursorline = true
+
 opt.foldmethod = "indent"
 opt.foldenable = false
 

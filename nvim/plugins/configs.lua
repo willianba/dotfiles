@@ -42,6 +42,14 @@ M.neoscroll = function()
   end
 end
 
+M.surround = function()
+  local present, surround = pcall(require, "nvim-surround")
+
+  if present then
+    surround.setup({})
+  end
+end
+
 M.copilot = function()
   vim.g.copilot_node_command = "$HOME/.nvm/versions/node/v17.9.0/bin/node"
 end
