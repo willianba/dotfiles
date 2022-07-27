@@ -5,6 +5,9 @@ return {
   ["goolord/alpha-nvim"] = {
     disable = false,
   },
+  ["neovim/nvim-lspconfig"] = {
+    config = configs.lspconfig,
+  },
   ["jose-elias-alvarez/null-ls.nvim"] = {
     after = "nvim-lspconfig",
     config = configs.null_ls,

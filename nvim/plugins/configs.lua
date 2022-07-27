@@ -89,4 +89,9 @@ M.null_ls = function()
   end
 end
 
+M.lspconfig = function()
+  require("plugins.configs.lspconfig")
+  require("custom.plugins.lspconfig")
+end
+
 return M
