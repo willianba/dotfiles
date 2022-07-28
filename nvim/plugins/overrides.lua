@@ -30,19 +30,19 @@ M.nvimtree = {
 
 M.treesitter = {
   ensure_installed = {
-    "lua",
-    "vim",
-    "typescript",
-    "javascript",
-    "json",
-    "markdown",
+    "astro",
     "bash",
-    "html",
     "css",
-    "ruby",
     "go",
     "graphql",
+    "html",
+    "javascript",
+    "json",
+    "lua",
+    "markdown",
     "prisma",
+    "typescript",
+    "vim",
   },
   rainbow = {
     enable = true,
@@ -80,6 +80,26 @@ M.cmp = {
     { name = "buffer" },
     { name = "nvim_lua" },
     { name = "path" },
+  },
+}
+
+M.mason = {
+  ensure_installed = {
+    "astro-language-server",
+    "bash-language-server",
+    "eslint-lsp",
+    "gopls",
+    "graphql-language-service-cli",
+    "html-lsp",
+    "json-lsp",
+    "lua-language-server",
+    "prisma-language-server",
+    "typescript-language-server",
+    "yaml-language-server",
+    "firefox-debug-adapter",
+    "go-debug-adapter",
+    "prettier",
+    "stylua",
   },
 }
 

@@ -5,7 +5,11 @@ return {
   ["goolord/alpha-nvim"] = {
     disable = false,
   },
+  ["williamboman/mason-lspconfig.nvim"] = {
+    config = configs.mason_lspconfig,
+  },
   ["neovim/nvim-lspconfig"] = {
+    after = "mason-lspconfig.nvim",
     config = configs.lspconfig,
   },
   ["jose-elias-alvarez/null-ls.nvim"] = {

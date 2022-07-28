@@ -4,17 +4,17 @@ local capabilities = require("plugins.configs.lspconfig").capabilities
 local lspconfig = require("lspconfig")
 
 local servers = {
+  "astro",
+  "bashls",
+  "eslint",
   "gopls",
   "graphql",
   "html",
-  "eslint",
   "jsonls",
-  "sumneko_lua",
-  "zk",
-  "solargraph",
-  "tsserver",
-  "astro",
   "prismals",
+  "sumneko_lua",
+  "tsserver",
+  "yamlls",
 }
 
 for _, lsp in ipairs(servers) do

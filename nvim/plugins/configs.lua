@@ -94,4 +94,30 @@ M.lspconfig = function()
   require("custom.plugins.lspconfig")
 end
 
+M.mason_lspconfig = function()
+  local present, mason_lspconfig = pcall(require, "mason-lspconfig.nvim")
+
+  if present then
+    mason_lspconfig.setup({
+      ensure_installed = {
+        "astro-language-server",
+        "bash-language-server",
+        "eslint-lsp",
+        "gopls",
+        "graphql-language-service-cli",
+        "html-lsp",
+        "json-lsp",
+        "lua-language-server",
+        "prisma-language-server",
+        "typescript-language-server",
+        "yaml-language-server",
+        "firefox-debug-adapter",
+        "go-debug-adapter",
+        "prettier",
+        "stylua",
+      },
+    })
+  end
+end
+
 return M

@@ -9,6 +9,7 @@ M.plugins = {
     ["nvim-treesitter/nvim-treesitter"] = overrides.treesitter,
     ["nvim-telescope/telescope.nvim"] = overrides.telescope,
     ["NvChad/nvterm"] = overrides.nvterm,
+    ["williamboman/mason.nvim"] = overrides.mason,
   },
   user = require("custom.plugins"),
 }
