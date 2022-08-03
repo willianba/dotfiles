@@ -5,6 +5,7 @@ local M = {}
 M.nvimtree = {
   git = {
     enable = true,
+    ignore = false,
   },
   view = {
     adaptive_size = true,
