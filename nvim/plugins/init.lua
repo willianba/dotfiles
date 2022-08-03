@@ -48,4 +48,7 @@ return {
   ["mg979/vim-visual-multi"] = {
     branch = "master",
   },
+  ["NvChad/ui"] = {
+    commit = "6d18c5482b30bbcb02ac20049f2b0b67be9ea164",
+  },
 }
