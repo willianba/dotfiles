@@ -11,6 +11,7 @@ local servers = {
   "graphql",
   "html",
   "jsonls",
+  "marksman",
   "prismals",
   "sumneko_lua",
   "tsserver",
