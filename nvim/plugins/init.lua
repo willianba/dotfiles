@@ -5,6 +5,9 @@ return {
   ["goolord/alpha-nvim"] = {
     disable = false,
   },
+  ["folke/which-key.nvim"] = {
+    disable = false,
+  },
   ["williamboman/mason-lspconfig.nvim"] = {
     config = configs.mason_lspconfig,
   },
@@ -45,10 +48,7 @@ return {
   ["karb94/neoscroll.nvim"] = {
     config = configs.neoscroll,
   },
-  ["mg979/vim-visual-multi"] = {
-    branch = "master",
-  },
-  ["folke/which-key.nvim"] = {
-    disable = false,
+  ["folke/zen-mode.nvim"] = {
+    config = configs.zen,
   },
 }
