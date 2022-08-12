@@ -122,4 +122,16 @@ M.mason_lspconfig = function()
   end
 end
 
+M.zen = function()
+  local present, zen = pcall(require, "zen-mode")
+
+  if present then
+    zen.setup({
+      window = {
+        backdrop = 1,
+      },
+    })
+  end
+end
+
 return M
