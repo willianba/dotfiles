@@ -77,10 +77,6 @@ M.null_ls = function()
           "--line-endings=Unix",
         },
       }),
-
-      --- ruby
-      null_ls.builtins.diagnostics.rubocop,
-      null_ls.builtins.formatting.rubocop,
     }
 
     null_ls.setup({
