@@ -130,4 +130,12 @@ M.zen = function()
   end
 end
 
+M.scrollbar = function()
+  local present, scrollbar = pcall(require, "scrollbar")
+
+  if present then
+    scrollbar.setup({})
+  end
+end
+
 return M

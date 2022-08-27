@@ -51,4 +51,7 @@ return {
   ["folke/zen-mode.nvim"] = {
     config = configs.zen,
   },
+  ["petertriho/nvim-scrollbar"] = {
+    config = configs.scrollbar,
+  },
 }
