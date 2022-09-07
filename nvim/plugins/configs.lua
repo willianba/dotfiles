@@ -62,7 +62,9 @@ M.null_ls = function()
       --  js, ts
       null_ls.builtins.diagnostics.eslint,
       null_ls.builtins.code_actions.eslint,
-      null_ls.builtins.formatting.prettier,
+      null_ls.builtins.formatting.prettier.with({
+        extra_filetypes = { "astro" },
+      }),
 
       --- go
       null_ls.builtins.diagnostics.staticcheck,
@@ -106,6 +108,7 @@ M.mason_lspconfig = function()
         "marksman",
         "lua-language-server",
         "prisma-language-server",
+        "tailwindcss-language-server",
         "typescript-language-server",
         "yaml-language-server",
         "firefox-debug-adapter",
@@ -136,6 +139,10 @@ M.scrollbar = function()
   if present then
     scrollbar.setup({})
   end
+end
+
+M.vim_astro = function()
+  vim.g.astro_typescript = "enable"
 end
 
 return M

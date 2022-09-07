@@ -54,4 +54,7 @@ return {
   ["petertriho/nvim-scrollbar"] = {
     config = configs.scrollbar,
   },
+  ["wuelnerdotexe/vim-astro"] = {
+    config = configs.vim_astro,
+  },
 }

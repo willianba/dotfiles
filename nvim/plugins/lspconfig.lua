@@ -14,6 +14,7 @@ local servers = {
   "marksman",
   "prismals",
   "sumneko_lua",
+  "tailwindcss",
   "tsserver",
   "yamlls",
 }
