@@ -26,3 +26,8 @@ autocmd("BufEnter", {
     vim.opt.filetype = "astro"
   end,
 })
+
+autocmd("VimResized", {
+  pattern = "*",
+  command = "tabdo wincmd =",
+})
