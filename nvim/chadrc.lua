@@ -4,7 +4,7 @@ M.plugins = require("custom.plugins")
 
 M.ui = {
   theme_toggle = { "doomchad", "everforest_light" },
-  theme = "doomchad",
+  theme = "everforest_light",
 }
 
 M.mappings = require("custom.core.mappings")
