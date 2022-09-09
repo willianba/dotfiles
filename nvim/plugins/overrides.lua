@@ -1,5 +1,3 @@
--- this file tracks plugins configs to override/add
-
 local M = {}
 
 M.nvimtree = {
@@ -93,12 +91,15 @@ M.mason = {
     "graphql-language-service-cli",
     "html-lsp",
     "json-lsp",
+    "marksman",
     "lua-language-server",
     "prisma-language-server",
+    "tailwindcss-language-server",
     "typescript-language-server",
     "yaml-language-server",
     "firefox-debug-adapter",
     "go-debug-adapter",
+    "markdownlint",
     "prettier",
     "stylua",
   },
