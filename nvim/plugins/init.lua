@@ -1,13 +1,34 @@
--- this file tracks new and replaced plugins
 local configs = require("custom.plugins.configs")
+local overrides = require("custom.plugins.overrides")
 
 return {
+  -- config overrides first, so they don't get lost
+  ["hrsh7th/nvim-cmp"] = {
+    override_options = overrides.cmp,
+  },
+  ["kyazdani42/nvim-tree.lua"] = {
+    override_options = overrides.nvimtree,
+  },
+  ["nvim-treesitter/nvim-treesitter"] = {
+    override_options = overrides.treesitter,
+  },
+  ["nvim-telescope/telescope.nvim"] = {
+    override_options = overrides.telescope,
+  },
+  ["NvChad/nvterm"] = {
+    override_options = overrides.nvterm,
+  },
+  ["williamboman/mason.nvim"] = {
+    override_options = overrides.mason,
+  },
+  -- definition overrides then
   ["goolord/alpha-nvim"] = {
     disable = false,
   },
   ["folke/which-key.nvim"] = {
     disable = false,
   },
+  -- now new plugins
   ["williamboman/mason-lspconfig.nvim"] = {
     config = configs.mason_lspconfig,
   },
