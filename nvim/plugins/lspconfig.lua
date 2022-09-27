@@ -13,6 +13,7 @@ local servers = {
   "jsonls",
   "marksman",
   "prismals",
+  "rust_analyzer",
   "sumneko_lua",
   "tailwindcss",
   "tsserver",

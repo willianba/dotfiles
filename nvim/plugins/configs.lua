@@ -70,6 +70,9 @@ M.null_ls = function()
       null_ls.builtins.diagnostics.staticcheck,
       null_ls.builtins.formatting.gofmt,
 
+      -- rust
+      null_ls.builtins.formatting.rustfmt,
+
       --- lua
       null_ls.builtins.diagnostics.luacheck,
       null_ls.builtins.formatting.stylua.with({
@@ -108,6 +111,7 @@ M.mason_lspconfig = function()
         "marksman",
         "lua-language-server",
         "prisma-language-server",
+        "rust-analyzer",
         "tailwindcss-language-server",
         "typescript-language-server",
         "yaml-language-server",
