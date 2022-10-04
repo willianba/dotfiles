@@ -54,9 +54,6 @@ return {
   ["windwp/nvim-ts-autotag"] = {
     after = "nvim-treesitter",
   },
-  ["APZelos/blamer.nvim"] = {
-    config = configs.blamer,
-  },
   ["folke/trouble.nvim"] = {
     config = configs.trouble,
   },

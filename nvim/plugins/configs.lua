@@ -10,14 +10,6 @@ M.workspaces = function()
   end
 end
 
-M.git_gutter = function()
-  vim.g.gitgutter_signs = 0
-end
-
-M.blamer = function()
-  vim.g.blamer_enabled = 1
-end
-
 M.trouble = function()
   local present, trouble = pcall(require, "trouble.nvim")
 
