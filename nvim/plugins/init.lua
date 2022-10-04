@@ -21,6 +21,9 @@ return {
   ["williamboman/mason.nvim"] = {
     override_options = overrides.mason,
   },
+  ["lewis6991/gitsigns.nvim"] = {
+    override_options = overrides.gitsigns,
+  },
   -- definition overrides then
   ["goolord/alpha-nvim"] = {
     disable = false,
