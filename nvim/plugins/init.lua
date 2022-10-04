@@ -21,6 +21,9 @@ return {
   ["williamboman/mason.nvim"] = {
     override_options = overrides.mason,
   },
+  ["L3MON4D3/LuaSnip"] = {
+    override_options = overrides.luasnip,
+  },
   ["lewis6991/gitsigns.nvim"] = {
     override_options = overrides.gitsigns,
   },

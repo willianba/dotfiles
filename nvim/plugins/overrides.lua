@@ -112,4 +112,13 @@ M.gitsigns = {
   current_line_blame = true,
 }
 
+M.luasnip = function()
+  local present, luasnip = pcall(require, "luasnip")
+
+  if present then
+    luasnip.filetype_extend("typescriptreact", { "html" })
+    luasnip.filetype_extend("javascriptreact", { "html" })
+  end
+end
+
 return M
