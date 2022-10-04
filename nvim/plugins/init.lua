@@ -60,8 +60,13 @@ return {
   ["kylechui/nvim-surround"] = {
     config = configs.surround,
   },
-  ["github/copilot.vim"] = {
+  ["zbirenbaum/copilot.lua"] = {
+    event = "VimEnter",
     config = configs.copilot,
+  },
+  ["zbirenbaum/copilot-cmp"] = {
+    after = "copilot.lua",
+    config = configs.copilot_cmp,
   },
   ["karb94/neoscroll.nvim"] = {
     config = configs.neoscroll,

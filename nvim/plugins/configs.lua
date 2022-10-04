@@ -43,7 +43,32 @@ M.surround = function()
 end
 
 M.copilot = function()
-  vim.g.copilot_node_command = "$HOME/.nvm/versions/node/v17.9.0/bin/node"
+  local present, copilot = pcall(require, "copilot")
+
+  if present then
+    copilot.setup({
+      suggestion = {
+        auto_trigger = true,
+      },
+      copilot_node_command = vim.fn.expand("$HOME") .. "/.nvm/versions/node/v17.9.0/bin/node",
+      server_opts_overrides = {
+        settings = {
+          advanced = {
+            listCount = 10,
+            inlineSuggestCount = 3,
+          },
+        },
+      },
+    })
+  end
+end
+
+M.copilot_cmp = function()
+  local present, copilot_cmp = pcall(require, "copilot_cmp")
+
+  if present then
+    copilot_cmp.setup({})
+  end
 end
 
 M.null_ls = function()
@@ -57,6 +82,7 @@ M.null_ls = function()
       null_ls.builtins.formatting.prettier.with({
         extra_filetypes = { "astro" },
       }),
+      null_ls.builtins.formatting.prismaFmt,
 
       --- go
       null_ls.builtins.diagnostics.staticcheck,
