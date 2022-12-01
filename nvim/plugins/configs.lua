@@ -91,6 +91,9 @@ M.null_ls = function()
       -- rust
       null_ls.builtins.formatting.rustfmt,
 
+      --- terraform
+      null_ls.builtins.formatting.terraform_fmt,
+
       --- lua
       null_ls.builtins.diagnostics.luacheck,
       null_ls.builtins.formatting.stylua.with({
@@ -131,6 +134,7 @@ M.mason_lspconfig = function()
         "prisma-language-server",
         "rust-analyzer",
         "tailwindcss-language-server",
+        "terraform-ls",
         "typescript-language-server",
         "yaml-language-server",
         "firefox-debug-adapter",

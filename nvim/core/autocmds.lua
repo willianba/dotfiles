@@ -27,6 +27,14 @@ autocmd("BufEnter", {
   end,
 })
 
+-- fix terraform syntac highlighting
+autocmd("BufEnter", {
+  pattern = "*.tf",
+  callback = function()
+    vim.opt.filetype = "terraform"
+  end,
+})
+
 autocmd("VimResized", {
   pattern = "*",
   command = "tabdo wincmd =",

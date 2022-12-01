@@ -86,4 +86,5 @@ return {
   ["wuelnerdotexe/vim-astro"] = {
     config = configs.vim_astro,
   },
+  ["hashivim/vim-terraform"] = {},
 }
