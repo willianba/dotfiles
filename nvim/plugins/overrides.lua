@@ -118,6 +118,7 @@ M.luasnip = function()
   if present then
     luasnip.filetype_extend("typescriptreact", { "html" })
     luasnip.filetype_extend("javascriptreact", { "html" })
+    luasnip.filetype_extend("astro", { "html" })
   end
 end
 
