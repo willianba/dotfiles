@@ -19,6 +19,8 @@ M.general = {
     ["<leader>tf"] = { "<cmd>TroubleToggle lsp_references<CR>", "trouble references" },
     ["n"] = { "nzzzv", "search symbols and center screen" },
     ["N"] = { "Nzzzv", "search symbols and center screen backwards" },
+    -- ["<C-d>"] = { "<C-d>zz", "go down and center screen" },
+    -- ["<C-u>"] = { "<C-u>zz", "go up and center screen" },
   },
   i = {
     ["jk"] = { "<ESC>", "escape insert mode" },
