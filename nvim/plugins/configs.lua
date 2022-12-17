@@ -54,7 +54,7 @@ M.copilot = function()
       server_opts_overrides = {
         settings = {
           advanced = {
-            listCount = 10,
+            listCount = 5,
             inlineSuggestCount = 3,
           },
         },
