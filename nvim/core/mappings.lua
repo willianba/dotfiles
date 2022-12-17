@@ -13,9 +13,22 @@ M.disabled = {
 M.general = {
   n = {
     ["<leader>tr"] = { "<cmd>TroubleToggle<CR>", "trouble diagnostics" },
+    ["<leader>tn"] = { "<cmd>TroubleToggle lsp_workspace_diagnostics<CR>", "trouble workspace diagnostics" },
+    ["<leader>td"] = { "<cmd>TroubleToggle lsp_document_diagnostics<CR>", "trouble document diagnostics" },
+    ["<leader>tq"] = { "<cmd>TroubleToggle quickfix<CR>", "trouble quickfix" },
+    ["<leader>tf"] = { "<cmd>TroubleToggle lsp_references<CR>", "trouble references" },
+    ["n"] = { "nzzzv", "search symbols and center screen" },
+    ["N"] = { "Nzzzv", "search symbols and center screen backwards" },
   },
   i = {
     ["jk"] = { "<ESC>", "escape insert mode" },
+  },
+  v = {
+    ["J"] = { ":m '>+1<CR>gv=gv", "move line down" },
+    ["K"] = { ":m '<-2<CR>gv=gv", "move line up" },
+  },
+  x = {
+    ["<leader>p"] = { '"_dP', "paste over selection" },
   },
 }
 
