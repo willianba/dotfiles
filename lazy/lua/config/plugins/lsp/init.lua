@@ -70,12 +70,10 @@ return {
       end,
     })
 
-    -- diagnostics
     for name, icon in pairs(require("config.settings.icons").diagnostics) do
       name = "DiagnosticSign" .. name
       vim.fn.sign_define(name, { text = icon, texthl = name, numhl = "" })
     end
-
     vim.diagnostic.config({
       underline = true,
       update_in_insert = false,
@@ -83,7 +81,13 @@ return {
       severity_sort = true,
     })
 
-    -- lspconfig
+    local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
+    function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
+      opts = opts or {}
+      opts.border = "single"
+      return orig_util_open_floating_preview(contents, syntax, opts, ...)
+    end
+
     local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
     for _, server in pairs(servers) do
       require("lspconfig")[server].setup({ capabilities })
