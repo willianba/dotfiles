@@ -6,5 +6,13 @@ return {
     { "<leader>wl", "<cmd>WorkspacesList<cr>" },
     { "<leader>wo", "<cmd>WorkspacesOpen<cr>" },
   },
-  config = true,
+  config = function()
+    require("workspaces").setup({
+      hooks = {
+        open = {
+          "Telescope find_files",
+        },
+      },
+    })
+  end,
 }
