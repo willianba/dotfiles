@@ -32,7 +32,15 @@ return {
       "williamboman/mason.nvim",
       -- event = "BufReadPre",
       config = function()
-        require("mason").setup()
+        require("mason").setup({
+          ui = {
+            icons = {
+              package_installed = "✓",
+              package_pending = "➜",
+              package_uninstalled = "✗",
+            },
+          },
+        })
         local registry = require("mason-registry")
         for _, tool in pairs(tools) do
           local package = registry.get_package(tool)
