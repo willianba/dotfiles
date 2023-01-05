@@ -1,0 +1,7 @@
+- add a border to the cmp hover floating window
+- fix renaming taking too long to open the dialog
+- cmp/lsp/something is taking too long to start (first start only)
+- add cool icons to mason
+- make lualine a little beautiful like nvchad does [also steal some of their custom methods](https://github.com/NvChad/ui/blob/main/lua/nvchad_ui/statusline/modules.lua)
+  - look at lualine advanced themes like the [devil one](https://github.com/nvim-lualine/lualine.nvim/blob/master/examples/evil_lualine.lua)
+- telescope find doesn't update after change workspace
