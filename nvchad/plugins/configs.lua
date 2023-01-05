@@ -164,6 +164,7 @@ M.scrollbar = function()
 
   if present then
     scrollbar.setup({})
+    require("scrollbar.handlers.gitsigns").setup()
   end
 end
 
