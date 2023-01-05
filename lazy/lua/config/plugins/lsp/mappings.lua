@@ -24,7 +24,7 @@ function M.on_attach(client, buffer)
   local format = require("config.plugins.lsp.format").format
   self:map("<leader>fm", format, { has = "documentFormatting" })
   self:map("<leader>fm", format, { mode = "v", has = "documentRangeFormatting" })
-  self:map("<leader>ra", M.rename, { expr = true, has = "rename" })
+  self:map("<leader>ra", vim.lsp.buf.rename, { has = "rename" })
 
   if client.name == "tsserver" and pcall(require, "typescript") then
     self:map("<leader>co", "TypescriptOrganizeImports")
@@ -51,14 +51,6 @@ function M:map(lhs, rhs, opts)
     type(rhs) == "string" and ("<cmd>%s<cr>"):format(rhs) or rhs,
     { silent = true, buffer = self.buffer, expr = opts.expr }
   )
-end
-
-function M.rename()
-  if pcall(require, "inc_rename") then
-    return ":IncRename " .. vim.fn.expand("<cword>")
-  else
-    vim.lsp.buf.rename()
-  end
 end
 
 function M.diagnostic_goto(next, severity)
