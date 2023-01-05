@@ -1,3 +1,6 @@
+local function cwd()
+  return vim.fn.fnamemodify(vim.fn.getcwd(), ":t")
+end
 return {
   "nvim-lualine/lualine.nvim",
   dependencies = {
@@ -7,17 +10,17 @@ return {
     require("lualine").setup({
       options = {
         theme = vim.g.colors_name,
-        section_separators = { left = " ", right = " " },
-        component_separators = { left = " ", right = " " },
+        component_separators = "|",
+        section_separators = { left = "", right = "" },
         globalstatus = true,
       },
       sections = {
-        lualine_a = { "mode" },
-        lualine_b = { "filename" },
+        lualine_a = { { "mode", separator = { left = "" } } },
+        lualine_b = { { "filetype", icon_only = true, padding = { left = 1, right = 0 }, separator = {} }, "filename" },
         lualine_c = { "branch", "diff" },
-        lualine_x = { "diagnostics", "filetype" },
-        lualine_y = { "location" },
-        lualine_z = { "progress" },
+        lualine_x = { "diagnostics", cwd },
+        lualine_y = { { "location", padding = 0 } },
+        lualine_z = { { "progress", separator = { right = "" } } },
       },
     })
   end,
