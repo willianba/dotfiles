@@ -30,7 +30,7 @@ return {
   dependencies = {
     {
       "williamboman/mason.nvim",
-      -- event = "BufReadPre",
+      cmd = { "Mason" },
       config = function()
         require("mason").setup({
           ui = {
@@ -54,7 +54,6 @@ return {
     },
     {
       "williamboman/mason-lspconfig.nvim",
-      -- event = "BufReadPre",
       config = {
         automatic_installation = true,
         ensure_installed = servers,

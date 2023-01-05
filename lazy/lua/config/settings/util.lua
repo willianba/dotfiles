@@ -6,7 +6,7 @@ M.toggle_dark_mode = function()
 end
 
 M.toggle_theme = function()
-  local theme = vim.ui.select({ "catppuccin", "rose-pine", "everforest" }, {
+  vim.ui.select({ "catppuccin", "rose-pine", "everforest" }, {
     prompt = "Select theme",
   }, function(theme)
     vim.cmd.colorscheme(theme)
@@ -14,7 +14,6 @@ M.toggle_theme = function()
   end)
 end
 
--- create function that toggles on and off the diagnostics
 M.toggle_diagnostics = function()
   local bufnr = vim.api.nvim_get_current_buf()
   local enabled = vim.diagnostic.get(bufnr)
