@@ -14,14 +14,4 @@ M.toggle_theme = function()
   end)
 end
 
-M.toggle_diagnostics = function()
-  local bufnr = vim.api.nvim_get_current_buf()
-  local enabled = vim.diagnostic.get(bufnr)
-  if vim.tbl_isempty(enabled) then
-    vim.diagnostic.enable(bufnr)
-  else
-    vim.diagnostic.disable(bufnr)
-  end
-end
-
 return M

@@ -26,7 +26,8 @@ vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
 vim.keymap.set("n", "<leader>tt", util.toggle_dark_mode)
 vim.keymap.set("n", "<leader>ct", util.toggle_theme)
-vim.keymap.set("n", "<leader>td", util.toggle_diagnostics)
+vim.keymap.set("n", "<leader>dd", vim.diagnostic.disable)
+vim.keymap.set("n", "<leader>ed", vim.diagnostic.enable)
 
 vim.keymap.set("n", "<leader>x", "<cmd>bd<cr>")
 
