@@ -1,1 +1,4 @@
 - show lsp on statusline
+- remove iloc error on eslint lsp config
+- fix telescope showing three times the same file
+- implement this: https://github.com/nvim-telescope/telescope.nvim/issues/621
