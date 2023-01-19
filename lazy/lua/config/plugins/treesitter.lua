@@ -5,7 +5,10 @@ return {
   dependencies = {
     { "p00f/nvim-ts-rainbow" },
     { "windwp/nvim-ts-autotag" },
-    { "nvim-treesitter/nvim-treesitter-context" },
+    {
+      "nvim-treesitter/nvim-treesitter-context",
+      config = true,
+    },
   },
   config = function()
     require("nvim-treesitter.configs").setup({
