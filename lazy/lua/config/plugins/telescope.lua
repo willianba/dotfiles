@@ -31,6 +31,7 @@ return {
   },
   keys = {
     { "<leader>ff", project_files },
+    { "<leader>fa", "<cmd>Telescope find_files follow=true no_ignore=true hidden=true<cr>" },
     { "<leader>fo", "<cmd>Telescope oldfiles<cr>" },
     { "<leader>fw", "<cmd>Telescope live_grep<cr>" },
     { "<leader>fb", "<cmd>Telescope buffers<cr>" },
