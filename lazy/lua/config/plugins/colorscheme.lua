@@ -1,3 +1,12 @@
+local function select_theme()
+  local hour = tonumber(os.date("%H")) - 3 -- GMT-3
+  if hour >= 8 and hour < 18 then
+    vim.o.background = "light"
+  else
+    vim.o.background = "dark"
+  end
+end
+
 return {
   {
     "catppuccin/nvim",
@@ -15,6 +24,7 @@ return {
         term_colors = true,
       })
       vim.cmd.colorscheme("catppuccin")
+      select_theme()
     end,
   },
   {
