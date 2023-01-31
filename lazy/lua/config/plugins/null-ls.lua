@@ -15,10 +15,6 @@ M.config = function()
       }),
       null.builtins.formatting.prismaFmt,
 
-      --- go
-      null.builtins.diagnostics.staticcheck,
-      null.builtins.formatting.gofmt,
-
       -- rust
       null.builtins.formatting.rustfmt,
 

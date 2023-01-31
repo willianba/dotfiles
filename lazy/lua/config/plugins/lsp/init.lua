@@ -1,24 +1,19 @@
 local servers = {
-  "astro",
   "bashls",
   "eslint",
-  "gopls",
-  "graphql",
   "html",
   "jsonls",
   "marksman",
-  "prismals",
   "rust_analyzer",
   "sumneko_lua",
-  "tailwindcss",
   "terraformls",
   "tsserver",
   "yamlls",
 }
 
 local tools = {
-  "firefox-debug-adapter",
-  "go-debug-adapter",
+  -- "firefox-debug-adapter",
+  -- "go-debug-adapter",
   "markdownlint",
   "prettier",
   "stylua",

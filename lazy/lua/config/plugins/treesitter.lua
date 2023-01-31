@@ -13,18 +13,14 @@ return {
   config = function()
     require("nvim-treesitter.configs").setup({
       ensure_installed = {
-        "astro",
         "bash",
         "css",
-        "go",
-        "graphql",
         "help",
         "html",
         "javascript",
         "json",
         "lua",
         "markdown",
-        "prisma",
         "rust",
         "typescript",
         "vim",
