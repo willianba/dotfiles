@@ -54,7 +54,7 @@ return {
     },
     {
       "williamboman/mason-lspconfig.nvim",
-      config = {
+      opts = {
         automatic_installation = true,
         ensure_installed = servers,
       },
