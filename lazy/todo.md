@@ -2,3 +2,4 @@
 - remove iloc error on eslint lsp config
 - fix telescope showing three times the same file
 - implement this: https://github.com/nvim-telescope/telescope.nvim/issues/621
+- example of cool lualine setup: https://github.com/AlexvZyl/.dotfiles/blob/main/.config/nvim/lua/alex/ui/lualine.lua
