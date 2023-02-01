@@ -14,8 +14,11 @@ local servers = {
 local tools = {
   -- "firefox-debug-adapter",
   -- "go-debug-adapter",
+  "eslint_d",
+  "luacheck",
   "markdownlint",
   "prettier",
+  "rustfmt",
   "stylua",
 }
 
