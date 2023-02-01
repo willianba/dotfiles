@@ -13,7 +13,6 @@ M.config = function()
       null.builtins.formatting.prettier.with({
         extra_filetypes = { "astro" },
       }),
-      null.builtins.formatting.prismaFmt,
 
       -- rust
       null.builtins.formatting.rustfmt,
