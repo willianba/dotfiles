@@ -30,5 +30,6 @@ vim.keymap.set("n", "<leader>dd", vim.diagnostic.disable)
 vim.keymap.set("n", "<leader>ed", vim.diagnostic.enable)
 
 vim.keymap.set("n", "<leader>x", "<cmd>bd<cr>")
+vim.keymap.set("n", "<leader>X", "<cmd>%bd | e#<cr>")
 
 vim.keymap.set("x", "<leader>p", '"_dP')
