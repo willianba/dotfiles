@@ -8,6 +8,8 @@ alias tx="export_terraform_variables"
 
 alias cza="change_zsh_arch"
 
+alias grl="release_commits"
+
 ### METHODS ###
 change_aws_profile () {
   export AWS_PROFILE=$1
@@ -28,4 +30,8 @@ change_zsh_arch () {
     ZSH_ARCH="x86_64"
   fi
   arch -$ZSH_ARCH zsh
+}
+
+release_commits () {
+  git log origin/production..$(git rev-parse --abbrev-ref HEAD) --format='%h - %ad - %s' --date=format:'%b %d %Y'
 }
