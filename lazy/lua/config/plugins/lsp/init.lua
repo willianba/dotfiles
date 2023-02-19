@@ -5,15 +5,13 @@ local servers = {
   "jsonls",
   "marksman",
   "rust_analyzer",
-  "sumneko_lua",
+  "lua_ls",
   "terraformls",
   "tsserver",
   "yamlls",
 }
 
 local tools = {
-  -- "firefox-debug-adapter",
-  -- "go-debug-adapter",
   "eslint_d",
   "luacheck",
   "markdownlint",
@@ -88,7 +86,21 @@ return {
 
     local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
     for _, server in pairs(servers) do
-      require("lspconfig")[server].setup({ capabilities })
+      local opts = {}
+      if server == "rust_analyzer" then
+        opts = {
+          cargo = {
+            features = "all",
+          },
+          checkOnSave = {
+            command = "clippy",
+          },
+          procMacro = {
+            enable = true,
+          },
+        }
+      end
+      require("lspconfig")[server].setup({ capabilities, opts })
     end
   end,
 }
