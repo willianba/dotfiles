@@ -5,3 +5,7 @@
 
 [credential]
   helper = store
+
+[init]
+	defaultBranchName = main
+	defaultBranch = main
