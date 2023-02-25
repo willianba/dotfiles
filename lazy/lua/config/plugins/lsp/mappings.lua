@@ -18,7 +18,7 @@ function M.on_attach(client, buffer)
   self:map("]w", M.diagnostic_goto(true, "WARNING"))
   self:map("[w", M.diagnostic_goto(false, "WARNING"))
 
-  self:map("<C-k>", vim.lsp.buf.signature_help, { mode = { "i", "n" }, has = "signatureHelp" })
+  self:map("<C-s>", vim.lsp.buf.signature_help, { mode = { "i", "n" }, has = "signatureHelp" })
   self:map("<leader>ca", vim.lsp.buf.code_action, { mode = { "n", "v" }, has = "codeAction" })
 
   local format = require("config.plugins.lsp.format").format
