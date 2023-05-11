@@ -1,5 +1,6 @@
 local servers = {
   "bashls",
+  "cssls",
   "eslint",
   "html",
   "jsonls",
