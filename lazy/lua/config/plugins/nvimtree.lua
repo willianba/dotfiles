@@ -15,7 +15,6 @@ return {
       },
       disable_netrw = true,
       hijack_netrw = true,
-      open_on_setup = false,
       hijack_cursor = true,
       hijack_unnamed_buffer_when_opening = false,
       update_cwd = true,
@@ -27,7 +26,6 @@ return {
         adaptive_size = true,
         side = "left",
         width = 35,
-        hide_root_folder = true,
       },
       git = {
         enable = true,
@@ -42,6 +40,7 @@ return {
         },
       },
       renderer = {
+        root_folder_label = false,
         group_empty = true,
         highlight_git = true,
         highlight_opened_files = "none",
