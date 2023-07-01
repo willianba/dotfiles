@@ -1,3 +1,5 @@
+local util = require("config.settings.util")
+
 local servers = {
   "bashls",
   "cssls",
@@ -17,7 +19,6 @@ local tools = {
   "luacheck",
   "markdownlint",
   "prettier",
-  "rustfmt",
   "stylua",
 }
 
@@ -56,6 +57,24 @@ return {
         ensure_installed = servers,
       },
     },
+    {
+      "rust-lang/rust.vim",
+      ft = { "rust" },
+    },
+    {
+      "simrat39/rust-tools.nvim",
+      ft = { "rust" },
+      config = function()
+        require("rust-tools").setup({
+          server = {
+            on_attach = function(client, buffer)
+              require("config.plugins.lsp.format").on_attach(client, buffer)
+              require("config.plugins.lsp.mappings").on_attach(client, buffer)
+            end,
+          },
+        })
+      end,
+    },
   },
   config = function()
     vim.api.nvim_create_autocmd("LspAttach", {
@@ -88,16 +107,15 @@ return {
     local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
     for _, server in pairs(servers) do
       local opts = {}
-      if server == "rust_analyzer" then
+      if server == "tsserver" then
         opts = {
-          cargo = {
-            features = "all",
-          },
-          checkOnSave = {
-            command = "clippy",
-          },
-          procMacro = {
-            enable = true,
+          filetypes = {
+            "javascript",
+            "javascriptreact",
+            "javascript.jsx",
+            "typescript",
+            "typescriptreact",
+            "typescript.tsx",
           },
         }
       end
