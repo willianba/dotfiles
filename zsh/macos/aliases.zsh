@@ -1,7 +1,6 @@
 alias reload="exec zsh"
 
 alias lg="lazygit"
-alias token="sh ~/goodkind/token.sh"
 
 alias k="kubectl"
 alias awsp="change_aws_profile"
@@ -9,6 +8,8 @@ alias awsp="change_aws_profile"
 alias cza="change_zsh_arch"
 
 alias uuid="generate_uuid"
+
+alias myip="dig -4 TXT +short o-o.myaddr.l.google.com @ns1.google.com"
 
 ### METHODS ###
 change_aws_profile () {
