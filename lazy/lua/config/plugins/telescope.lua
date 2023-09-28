@@ -14,7 +14,7 @@ end
 
 return {
   "nvim-telescope/telescope.nvim",
-  tag = "0.1.0",
+  tag = "0.1.2",
   cmd = { "Telescope" },
   dependencies = {
     "nvim-lua/plenary.nvim",
@@ -37,6 +37,7 @@ return {
     { "<leader>fb", "<cmd>Telescope buffers<cr>" },
     { "<leader>fk", "<cmd>Telescope keymaps<cr>" },
     { "<leader>fr", "<cmd>Telescope lsp_references<cr>" },
+    { "<leader>fh", "<cmd>Telescope harpoon marks<cr>" },
   },
   config = function()
     local telescope = require("telescope")
@@ -73,5 +74,6 @@ return {
     })
     telescope.load_extension("fzf")
     telescope.load_extension("workspaces")
+    telescope.load_extension("harpoon")
   end,
 }
