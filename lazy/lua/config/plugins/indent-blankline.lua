@@ -1,6 +1,7 @@
 return {
   "lukas-reineke/indent-blankline.nvim",
   event = "BufReadPre",
+  tag = "v2.20.8",
   config = function()
     require("indent_blankline").setup({
       filetype_exclude = {
