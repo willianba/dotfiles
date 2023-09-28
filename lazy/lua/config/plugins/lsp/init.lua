@@ -1,5 +1,3 @@
-local util = require("config.settings.util")
-
 local servers = {
   "bashls",
   "cssls",
@@ -56,24 +54,6 @@ return {
         automatic_installation = true,
         ensure_installed = servers,
       },
-    },
-    {
-      "rust-lang/rust.vim",
-      ft = { "rust" },
-    },
-    {
-      "simrat39/rust-tools.nvim",
-      ft = { "rust" },
-      config = function()
-        require("rust-tools").setup({
-          server = {
-            on_attach = function(client, buffer)
-              require("config.plugins.lsp.format").on_attach(client, buffer)
-              require("config.plugins.lsp.mappings").on_attach(client, buffer)
-            end,
-          },
-        })
-      end,
     },
   },
   config = function()
