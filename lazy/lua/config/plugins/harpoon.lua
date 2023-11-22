@@ -15,6 +15,12 @@ return {
       end,
     },
     {
+      "<leader>r",
+      function()
+        require("harpoon.mark").rm_file()
+      end,
+    },
+    {
       "<leader>h",
       function()
         require("harpoon.ui").toggle_quick_menu()
