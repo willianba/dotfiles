@@ -8,9 +8,9 @@ M.config = function()
   null.setup({
     sources = {
       --  js, ts
-      null.builtins.diagnostics.eslint,
-      null.builtins.code_actions.eslint,
-      null.builtins.formatting.prettier.with({
+      null.builtins.diagnostics.eslint_d,
+      null.builtins.code_actions.eslint_d,
+      null.builtins.formatting.prettierd.with({
         extra_filetypes = { "astro" },
       }),
 
