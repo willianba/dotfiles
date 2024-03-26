@@ -1,6 +1,7 @@
 local M = {
   "jose-elias-alvarez/null-ls.nvim",
   event = "BufReadPost",
+  enabled = false,
 }
 
 M.config = function()

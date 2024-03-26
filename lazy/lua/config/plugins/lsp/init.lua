@@ -61,7 +61,7 @@ return {
       callback = function(args)
         local buffer = args.buf
         local client = vim.lsp.get_client_by_id(args.data.client_id)
-        require("config.plugins.lsp.format").on_attach(client, buffer)
+        -- require("config.plugins.lsp.format").on_attach(client, buffer)
         require("config.plugins.lsp.mappings").on_attach(client, buffer)
       end,
     })

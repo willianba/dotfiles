@@ -21,9 +21,9 @@ function M.on_attach(client, buffer)
   self:map("<C-s>", vim.lsp.buf.signature_help, { mode = { "i", "n" }, has = "signatureHelp" })
   self:map("<leader>ca", vim.lsp.buf.code_action, { mode = { "n", "v" }, has = "codeAction" })
 
-  local format = require("config.plugins.lsp.format").format
-  self:map("<leader>fm", format, { has = "documentFormatting" })
-  self:map("<leader>fm", format, { mode = "v", has = "documentRangeFormatting" })
+  -- local format = require("config.plugins.lsp.format").format
+  -- self:map("<leader>fm", format, { has = "documentFormatting" })
+  -- self:map("<leader>fm", format, { mode = "v", has = "documentRangeFormatting" })
   self:map("<leader>ra", vim.lsp.buf.rename, { has = "rename" })
 
   if client.name == "tsserver" and pcall(require, "typescript") then
