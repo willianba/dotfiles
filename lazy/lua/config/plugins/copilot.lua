@@ -6,7 +6,7 @@ return {
       suggestion = {
         auto_trigger = true,
       },
-      copilot_node_command = vim.fn.expand("$HOME") .. "/.nvm/versions/node/v17.9.0/bin/node",
+      copilot_node_command = vim.fn.expand("$HOME") .. "/.nvm/versions/node/v20.11.1/bin/node",
       server_opts_overrides = {
         settings = {
           advanced = {
