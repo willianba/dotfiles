@@ -1,3 +1,4 @@
+-- TODO this file can be deleted if I delete the null-ls
 local util = require("config.settings.util")
 
 local M = {}

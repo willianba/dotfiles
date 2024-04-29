@@ -36,7 +36,6 @@ return {
     { "<leader>fw", "<cmd>Telescope live_grep<cr>" },
     { "<leader>fb", "<cmd>Telescope buffers<cr>" },
     { "<leader>fk", "<cmd>Telescope keymaps<cr>" },
-    { "<leader>fr", "<cmd>Telescope lsp_references<cr>" },
     { "<leader>fh", "<cmd>Telescope harpoon marks<cr>" },
   },
   config = function()
