@@ -4,7 +4,8 @@ function M.on_attach(client, buffer)
   local self = M.new(client, buffer)
 
   self:map("<leader>f", vim.diagnostic.open_float)
-  self:map("<leader>xd", "Telescope diagnostics")
+  self:map("<leader>tr", "Telescope diagnostics")
+  self:map("gs", "Telescope lsp_document_symbols")
   self:map("gd", "Telescope lsp_definitions")
   self:map("gr", "Telescope lsp_references")
   self:map("gD", "Telescope lsp_declarations")
@@ -20,10 +21,6 @@ function M.on_attach(client, buffer)
 
   self:map("<C-s>", vim.lsp.buf.signature_help, { mode = { "i", "n" }, has = "signatureHelp" })
   self:map("<leader>ca", vim.lsp.buf.code_action, { mode = { "n", "v" }, has = "codeAction" })
-
-  -- local format = require("config.plugins.lsp.format").format
-  -- self:map("<leader>fm", format, { has = "documentFormatting" })
-  -- self:map("<leader>fm", format, { mode = "v", has = "documentRangeFormatting" })
   self:map("<leader>ra", vim.lsp.buf.rename, { has = "rename" })
 
   if client.name == "tsserver" and pcall(require, "typescript") then
