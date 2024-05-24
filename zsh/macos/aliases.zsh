@@ -3,6 +3,8 @@ alias reload="exec zsh"
 alias lg="lazygit"
 alias z="zoxide"
 
+alias ls="eza"
+
 alias k="kubectl"
 alias awsp="change_aws_profile"
 
