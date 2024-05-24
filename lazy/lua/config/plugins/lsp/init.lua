@@ -1,6 +1,7 @@
 local servers = {
   "bashls",
   "cssls",
+  "denols",
   "eslint",
   "html",
   "jsonls",
@@ -19,6 +20,25 @@ local tools = {
   "prettier",
   "stylua",
 }
+
+local no_conflict = function(client)
+  local active_clients = vim.lsp.get_active_clients()
+  if client.name == "denols" then
+    for _, client_ in pairs(active_clients) do
+      -- stop tsserver if denols is already active
+      if client_.name == "tsserver" then
+        client_.stop()
+      end
+    end
+  elseif client.name == "tsserver" then
+    for _, client_ in pairs(active_clients) do
+      -- prevent tsserver from starting if denols is already active
+      if client_.name == "denols" then
+        client.stop()
+      end
+    end
+  end
+end
 
 return {
   "neovim/nvim-lspconfig",
@@ -83,22 +103,30 @@ return {
       return orig_util_open_floating_preview(contents, syntax, opts, ...)
     end
 
+    local lspconfig = require("lspconfig")
     local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
     for _, server in pairs(servers) do
-      local opts = {}
-      if server == "tsserver" then
-        opts = {
-          filetypes = {
-            "javascript",
-            "javascriptreact",
-            "javascript.jsx",
-            "typescript",
-            "typescriptreact",
-            "typescript.tsx",
-          },
-        }
-      end
-      require("lspconfig")[server].setup({ capabilities, opts })
+      require("lspconfig")[server].setup({ capabilities })
     end
+
+    -- specific setup for some servers
+    require("lspconfig")["gleam"].setup({ capabilities })
+    require("lspconfig")["tsserver"].setup({
+      capabilities,
+      on_attach = no_conflict,
+      root_dir = lspconfig.util.root_pattern("tsconfig.json", "jsconfig.json"),
+    })
+    require("lspconfig")["denols"].setup({
+      capabilities,
+      on_attach = no_conflict,
+      root_dir = lspconfig.util.root_pattern("deno.json", "deno.jsonc"),
+      settings = {
+        deno = {
+          enable = true,
+          lint = true,
+          unstable = true,
+        },
+      },
+    })
   end,
 }
