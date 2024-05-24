@@ -1,10 +1,11 @@
 return {
   "kyazdani42/nvim-tree.lua",
+  enable = false,
   dependencies = { "nvim-tree/nvim-web-devicons" },
-  keys = {
-    { "<C-n>", "<cmd>NvimTreeToggle<cr>" },
-    { "<leader>e", "<cmd>NvimTreeFocus<cr>" },
-  },
+  -- keys = {
+  --   { "<C-n>", "<cmd>NvimTreeToggle<cr>" },
+  --   { "<leader>e", "<cmd>NvimTreeFocus<cr>" },
+  -- },
   config = function()
     vim.g.loaded_netrw = 1
     vim.g.loaded_netrwPlugin = 1
