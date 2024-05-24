@@ -7,7 +7,11 @@ return {
     { "windwp/nvim-ts-autotag" },
     {
       "nvim-treesitter/nvim-treesitter-context",
-      config = true,
+      config = function()
+        require("treesitter-context").setup({
+          multiline_threshold = 1,
+        })
+      end,
     },
   },
   config = function()
