@@ -30,6 +30,7 @@ git clone https://github.com/willianba/dotfiles.git $DOTFILES_PATH
 
 echo "Set config files"
 ln -sf $DOTFILES_PATH/.gitconfig $HOME
+# This is OS dependant. Make this generic later
 # ln -sf $DOTFILES_PATH/zsh/.zshrc $HOME
 # ln -sf $DOTFILES_PATH/zsh/*.zsh $OHMYZSH_CUSTOM_PATH
 ln -sf $DOTFILES_PATH/lazy/* $NVIM_PATH
