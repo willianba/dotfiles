@@ -5,10 +5,6 @@ local function select_theme()
 
   local hour = tonumber(os.date("%H"))
 
-  if sys_arch:find("microsoft") then
-    hour = hour - 3 -- GMT-3 due to WSL
-  end
-
   if hour >= 8 and hour < 18 then
     vim.o.background = "light"
   else
