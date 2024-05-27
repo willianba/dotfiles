@@ -1,10 +1,14 @@
 local M = {}
 
-M.autoformat = true
-
 M.toggle_autoformat = function()
-  M.autoformat = not M.autoformat
-  vim.notify(M.autoformat and "Enabled format on save" or "Disabled format on save")
+  local autoformat = vim.g.disable_autoformat
+
+  if not autoformat then
+    vim.cmd("FormatDisable")
+  else
+    vim.cmd("FormatEnable")
+  end
+  vim.notify(autoformat and "Enabled format on save" or "Disabled format on save")
 end
 
 M.toggle_dark_mode = function()
