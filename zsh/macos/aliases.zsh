@@ -6,6 +6,7 @@ alias z="zoxide"
 alias ls="eza"
 
 alias k="kubectl"
+alias kctx="kubectl config use-context"
 alias awsp="change_aws_profile"
 
 alias cza="change_zsh_arch"
