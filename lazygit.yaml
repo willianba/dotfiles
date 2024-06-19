@@ -1,0 +1,32 @@
+customCommands:
+  - key: "H"
+    description: "Check you for PR using its ID"
+    prompts:
+      - type: "input"
+        key: "PRID"
+        title: "Pull-Request ID"
+    command: "gh pr checkout {{ .Form.PRID }}"
+    context: "localBranches"
+    loadingText: "Checking out for PR"
+  - key: "E"
+    description: "Add empty commit"
+    context: "commits"
+    command: 'git commit --allow-empty -m "empty commit"'
+    loadingText: "Committing empty commit..."
+  - key: "o"
+    description: "Create a Pull Request"
+    prompts:
+      - type: "input"
+        title: "Select base branch"
+        key: "Branch"
+        initialValue: "dev"
+        suggestions:
+          preset: "branches"
+      - type: "input"
+        title: "Pull-Request title"
+        key: "Title"
+    command: "gh pr create -a @me -B {{ .Form.Branch }} -t {{ .Form.Title | quote }}"
+    context: "localBranches"
+    loadingText: "Creating Pull Request"
+    stream: true
+    subprocess: true
