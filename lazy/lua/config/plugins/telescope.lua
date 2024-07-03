@@ -58,7 +58,6 @@ return {
       defaults = {
         vimgrep_arguments = {
           "rg",
-          "--color=never",
           "--no-heading",
           "--with-filename",
           "--line-number",
@@ -69,23 +68,39 @@ return {
         initial_mode = "insert",
         selection_strategy = "reset",
         sorting_strategy = "ascending",
-        layout_strategy = "horizontal",
+        layout_strategy = "vertical",
         layout_config = {
+          vertical = {
+            mirror = true,
+            prompt_position = "top",
+            preview_height = 0.6,
+          },
           horizontal = {
             prompt_position = "top",
           },
         },
-        path_display = { "truncate" },
-        set_env = { COLORTERM = "truecolor" },
+        path_display = {
+          truncate = 5,
+        },
         prompt_prefix = " ",
         selection_caret = " ",
         mappings = {
           i = { ["Q"] = actions.close },
         },
       },
+      extensions = {
+        fzf = {
+          case_mode = "ignore_case",
+        },
+        undo = {
+          side_by_side = true,
+          saved_only = true,
+        },
+      },
     })
     telescope.load_extension("fzf")
     telescope.load_extension("workspaces")
     telescope.load_extension("harpoon")
+    telescope.load_extension("undo")
   end,
 }
