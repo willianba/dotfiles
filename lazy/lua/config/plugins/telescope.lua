@@ -25,6 +25,16 @@ return {
       build = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release",
     },
     {
+      "debugloop/telescope-undo.nvim",
+      keys = {
+        {
+          "<leader>u",
+          "<cmd>Telescope undo<cr>",
+          desc = "undo history",
+        },
+      },
+    },
+    {
       "natecraddock/workspaces.nvim",
       cmd = { "WorkspaceOpen" },
       keys = {
