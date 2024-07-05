@@ -13,7 +13,7 @@ alias cza="change_zsh_arch"
 
 alias uuid="generate_uuid"
 
-alias myip="dig -4 TXT +short o-o.myaddr.l.google.com @ns1.google.com"
+alias myip="dig -4 TXT +short o-o.myaddr.l.google.com @ns1.google.com | tr -d '\"'"
 
 ### METHODS ###
 change_aws_profile () {
