@@ -8,8 +8,8 @@ echo "Install brew"
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
 echo "Create neovim and fish config folder"
-mkdir -r $NVIM_PATH
-mkdir -r $FISH_PATH
+mkdir $NVIM_PATH
+mkdir $FISH_PATH
 
 echo "Clone repo"
 git clone https://github.com/redmac135/dotfiles.git $DOTFILES_PATH
