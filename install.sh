@@ -12,7 +12,7 @@ mkdir -r $NVIM_PATH
 mkdir -r $FISH_PATH
 
 echo "Clone repo"
-git clone https://github.com/willianba/dotfiles.git $DOTFILES_PATH
+git clone https://github.com/redmac135/dotfiles.git $DOTFILES_PATH
 
 echo "Install apps"
 xargs brew install < $DOTFILES_PATH/brew_programs_list
