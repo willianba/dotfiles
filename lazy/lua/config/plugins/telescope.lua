@@ -12,6 +12,11 @@ local project_files = function()
   end
 end
 
+local diagnostics = function()
+  local opts = { severity_bound = 0 }
+  require("telescope.builtin").diagnostics(opts)
+end
+
 return {
   "nvim-telescope/telescope.nvim",
   tag = "0.1.2",
@@ -50,6 +55,14 @@ return {
     { "<leader>fb", "<cmd>Telescope buffers<cr>" },
     { "<leader>fk", "<cmd>Telescope keymaps<cr>" },
     { "<leader>fh", "<cmd>Telescope harpoon marks<cr>" },
+    { "<leader>tr", diagnostics },
+    -- LSP mappings below
+    { "gs", "<cmd>Telescope lsp_document_symbols<cr>" },
+    { "gd", "<cmd>Telescope lsp_definitions<cr>" },
+    { "gr", "<cmd>Telescope lsp_references<cr>" },
+    { "gD", "<cmd>Telescope lsp_declarations<cr>" },
+    { "gi", "<cmd>Telescope lsp_implementations<cr>" },
+    { "gt", "<cmd>Telescope lsp_type_definitions<cr>" },
   },
   config = function()
     local telescope = require("telescope")
