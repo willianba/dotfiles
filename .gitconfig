@@ -1,11 +1,11 @@
 [user]
-  name = Willian Alves
-  email = wba.alves@gmail.com
-  username = willianba
+  name = Ethan Zhao
+  email = ethanzhao1981@gmail.com
+  username = redmac135
 
 [credential]
   helper = store
 
 [init]
-	defaultBranchName = main
-	defaultBranch = main
+	defaultBranchName = dev
+	defaultBranch = dev

@@ -5,14 +5,17 @@ NVIM_PATH="$HOME/.config/nvim"
 FISH_PATH="$HOME/.config/fish"
 
 echo "Install brew"
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+test -d ~/.linuxbrew && eval "$(~/.linuxbrew/bin/brew shellenv)"
+test -d /home/linuxbrew/.linuxbrew && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+echo "eval \"\$($(brew --prefix)/bin/brew shellenv)\"" >> ~/.bashrc
 
 echo "Create neovim and fish config folder"
-mkdir -r $NVIM_PATH
-mkdir -r $FISH_PATH
+mkdir -p $NVIM_PATH
+mkdir -p $FISH_PATH
 
 echo "Clone repo"
-git clone https://github.com/willianba/dotfiles.git $DOTFILES_PATH
+git clone https://github.com/redmac135/dotfiles.git $DOTFILES_PATH
 
 echo "Install apps"
 xargs brew install < $DOTFILES_PATH/brew_programs_list
