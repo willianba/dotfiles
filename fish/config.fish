@@ -6,6 +6,10 @@ end
 export BREW_HOME="/home/linuxbrew/.linuxbrew/bin"
 export PATH="$PATH:$BREW_HOME"
 
+# add deno
+export DENO_INSTALL="/home/ethan/.deno"
+export PATH="$DENO_INSTALL/bin:$PATH"
+
 # set default editor to nvim
 set -x EDITOR nvim
 
@@ -25,6 +29,12 @@ alias ll='ls -la'
 alias lzd='lazydocker'
 alias lg='lazygit'
 # alias git='git.exe'
+
+# github aliases
+alias gco='git checkout'
+alias gcb='git checkout -b'
+alias gcd='git checkout dev'
+alias gu='git fetch --prune && git pull'
 
 # set fortune as welcome message
 # function fish_greeting

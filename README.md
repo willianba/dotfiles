@@ -1,3 +1,3 @@
 # Install
 
-`sh -c "$(curl -fsSL https://raw.github.com/willianba/dotfiles/master/install.sh)"`
+`sh -c "$(curl -fsSL https://raw.github.com/redmac135/dotfiles/master/install.sh)"`
