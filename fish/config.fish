@@ -45,3 +45,6 @@ alias gu='git fetch --prune && git pull'
 
 # disable welcome message
 set fish_greeting
+
+# Created by `pipx` on 2024-08-11 19:00:09
+set PATH $PATH /home/ethan/.local/bin

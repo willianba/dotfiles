@@ -28,6 +28,8 @@ return {
         "rust",
         "typescript",
         "vim",
+        "vimdoc",
+        "luadoc",
       },
       rainbow = {
         enable = true,
