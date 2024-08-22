@@ -1,4 +1,5 @@
 return {
+  enabled = false,
   "zbirenbaum/copilot.lua",
   event = "BufReadPost",
   config = function()
@@ -6,7 +7,7 @@ return {
       suggestion = {
         auto_trigger = true,
       },
-      copilot_node_command = vim.fn.expand("$HOME") .. "/.nvm/versions/node/v21.7.1/bin/node",
+      copilot_node_command = vim.fn.expand("$HOME") .. "/.local/share/mise/installs/node/20/bin/node",
       server_opts_overrides = {
         settings = {
           advanced = {
