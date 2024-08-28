@@ -39,6 +39,7 @@ bars:
           "win_button",
           "komorebi_workspaces",
           "komorebi_active_layout",
+          "apps_left",
           "active_window"
         ]
       center: [
@@ -46,7 +47,7 @@ bars:
         ]
       right:
         [
-          "apps",
+          "apps_right",
           "weather",
           "volume",
           "clock",
@@ -116,7 +117,7 @@ widgets:
       layout_icons:
         bsp: "\udb82\udfcc "
         vertical_stack: "\uf51e "
-        monocle: "MONOCLE"
+        monocle: "\udb82\udf6f "
         maximised: "MAX"
         floating: "FLOATING"
         paused: "PAUSED"
@@ -185,18 +186,25 @@ widgets:
         #force_restart: ["\uead2","Force Restart"]
  
 
-  apps:
+  apps_left:
     type: "yasb.applications.ApplicationsWidget"
     options:
       label: "{data}"
+      class_name: "apps-left"
       app_list:
-        # - {icon: "\uf489", launch: "wt"}
+        - {icon: "\uf488", launch: "Arc.exe"}
+        - {icon: "\uf489", launch: "wezterm.exe"}
+        - {icon: "\udb81\udcc7", launch: "Spotify.exe"}
+
+  apps_right:
+    type: "yasb.applications.ApplicationsWidget"
+    options:
+      label: "{data}"
+      class_name: "apps-right"
+      app_list:
         - {icon: "\uf413", launch: "explorer"}
         - {icon: "\ueb51", launch: "quick_settings"}
         - {icon: "\uf0a2", launch: "notification_center"}
-        #- {icon: "\uf46a", launch: "cmd.exe /c start ms-settings:windowsupdate"}
-        # - {icon: "\uf422", launch: "search"}
-        # - {icon: "\udb84\udf55", launch: "widget"}
         # Currently available to use quick_settings, notification_center, search, widget, launcher (launcher will trigger ALT+A)
  
 
