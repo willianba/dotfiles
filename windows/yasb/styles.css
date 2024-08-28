@@ -62,10 +62,10 @@
 
 .apps-widget {
   padding: 0;
-  padding-left: 4px;
 }
 
 .apps-right {
+  padding: 0 4px 0 4px;
   border-top-left-radius: 18px;
   border-bottom-left-radius: 18px;
 }
@@ -75,8 +75,7 @@
 }
 
 .apps-left {
-  padding: 0;
-  padding-left: 4px;
+  padding: 0 2px 0 4px;
   border-top-right-radius: 18px;
   border-bottom-right-radius: 18px;
 }
