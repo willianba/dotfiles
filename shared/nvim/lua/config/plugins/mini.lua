@@ -20,16 +20,4 @@ return {
       })
     end,
   },
-  {
-    enabled = false,
-    "echasnovski/mini.animate",
-    event = "BufReadPost",
-    config = function()
-      require("mini.animate").setup({
-        open = { enable = false },
-        cursor = { enable = false },
-        close = { enable = false },
-      })
-    end,
-  },
 }
