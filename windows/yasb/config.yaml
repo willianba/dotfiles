@@ -21,7 +21,6 @@ bars:
     blur_effect:
       enabled: false
       acrylic: true
-      dark: false
     window_flags:
       always_on_top: false
       windows_app_bar: true
@@ -36,7 +35,6 @@ bars:
     widgets:
       left:
         [
-          "win_button",
           "komorebi_workspaces",
           "komorebi_active_layout",
           "apps_left",
@@ -100,13 +98,18 @@ widgets:
   komorebi_workspaces:
     type: "komorebi.workspaces.WorkspaceWidget"
     options:
-        label_offline: "Komorebi Offline"
-        # label_workspace_btn: "\udb81\udc3d "
-        # label_workspace_active_btn: "\udb81\udc3e "
-        label_default_name: "{index}"
-        label_zero_index: false
-        hide_empty_workspaces: true
-        hide_if_offline: true
+      container_padding:
+        top: 0
+        left: 6
+        bottom: 0
+        right: 6
+      label_offline: "Komorebi Offline"
+      # label_workspace_btn: "\udb81\udc3d"
+      # label_workspace_active_btn: "\udb81\udc3e"
+      label_default_name: "{index}"
+      label_zero_index: false
+      hide_empty_workspaces: true
+      hide_if_offline: true
 
   komorebi_active_layout:
     type: "komorebi.active_layout.ActiveLayoutWidget"
@@ -189,6 +192,11 @@ widgets:
   apps_left:
     type: "yasb.applications.ApplicationsWidget"
     options:
+      container_padding:
+        top: 0
+        left: 6
+        bottom: 0
+        right: 6
       label: "{data}"
       class_name: "apps-left"
       app_list:
@@ -199,6 +207,11 @@ widgets:
   apps_right:
     type: "yasb.applications.ApplicationsWidget"
     options:
+      container_padding:
+        top: 0
+        left: 6
+        bottom: 0
+        right: 6
       label: "{data}"
       class_name: "apps-right"
       app_list:
@@ -207,7 +220,6 @@ widgets:
         - {icon: "\uf0a2", launch: "notification_center"}
         # Currently available to use quick_settings, notification_center, search, widget, launcher (launcher will trigger ALT+A)
  
-
   win_button:
     type: "yasb.custom.CustomWidget"
     options:
