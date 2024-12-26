@@ -1,6 +1,6 @@
 customCommands:
   - key: "H"
-    description: "Check you for PR using its ID"
+    description: "Checkout for PR using its ID"
     prompts:
       - type: "input"
         key: "PRID"
