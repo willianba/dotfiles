@@ -27,13 +27,13 @@ return {
       end,
     },
     {
-      "<M-j>",
+      "<leader>j",
       function()
         require("harpoon.ui").nav_next()
       end,
     },
     {
-      "<M-k>",
+      "<leader>k",
       function()
         require("harpoon.ui").nav_prev()
       end,
