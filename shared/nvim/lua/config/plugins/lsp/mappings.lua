@@ -16,7 +16,7 @@ function M.on_attach(client, buffer)
   self:map("<leader>ca", vim.lsp.buf.code_action, { mode = { "n", "v" }, has = "codeAction" })
   self:map("<leader>ra", vim.lsp.buf.rename, { has = "rename" })
 
-  if client.name == "tsserver" and pcall(require, "typescript") then
+  if client.name == "ts_ls" and pcall(require, "typescript") then
     self:map("<leader>co", "TypescriptOrganizeImports")
     self:map("<leader>cR", "TypescriptRenameFile")
   end
