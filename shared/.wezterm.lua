@@ -58,6 +58,11 @@ local keys = {
 			end),
 		}),
 	},
+	{
+		key = "w",
+		mods = "ALT",
+		action = wezterm.action.ShowLauncherArgs({ flags = "FUZZY|WORKSPACES" }),
+	},
 }
 
 for i = 1, 9 do
