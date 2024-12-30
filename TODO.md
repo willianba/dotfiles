@@ -1,5 +1,3 @@
-- update setup script
-  - split them in several files according to OS
-  - should install many CLI dependencies, such as ripgrep, fd, fzf, docker, and so on
+- should install many CLI dependencies, such as ripgrep, fd, fzf, docker, and so on (install.sh is outdated)
 - create a list of cargo crates i have installed (such as lsd, eza, and so on)
 - retrieve brewfile from macos

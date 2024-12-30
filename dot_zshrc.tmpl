@@ -1,0 +1,92 @@
+export ZSH="$HOME/.oh-my-zsh"
+ZSH_THEME="sorin"
+zstyle ':omz:update' mode auto # update automatically without asking
+
+plugins=(git zsh-autosuggestions zsh-syntax-highlighting vi-mode)
+source $ZSH/oh-my-zsh.sh
+
+# User configuration
+export LANG=en_US.UTF-8
+export EDITOR='nvim'
+
+{{- if eq .chezmoi.os "linux" -}}
+export PATH="$HOME/.local/bin:$PATH"
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+{{- end -}}
+
+# apps configuration
+## Zoxide
+if command -v zoxide &>/dev/null; then
+  eval "$(zoxide init zsh --cmd cd)"
+fi
+
+## deno
+export DENO_INSTALL="$HOME/.deno"
+export PATH="$DENO_INSTALL/bin:$PATH"
+
+# mise
+eval "$($HOME/.local/bin/mise activate zsh)"
+
+# Moon
+export PATH="$HOME/.moon/bin:$PATH"
+
+# fzf
+source <(fzf --zsh)
+## Use fd instead of fzf
+export FZF_DEFAULT_COMMAND="fd --hidden --strip-cwd-prefix --exclude .git"
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+export FZF_ALT_C_COMMAND="fd --type=d --hidden --strip-cwd-prefix --exclude .git"
+# Use fd (https://github.com/sharkdp/fd) for listing path candidates.
+# - The first argument to the function ($1) is the base path to start traversal
+# - See the source code (completion.{bash,zsh}) for the details.
+_fzf_compgen_path() {
+  fd --hidden --exclude .git . "$1"
+}
+
+# Use fd to generate the list for directory completion
+_fzf_compgen_dir() {
+  fd --type=d --hidden --exclude .git . "$1"
+}
+
+{{ if eq .chezmoi.os "darwin" -}}
+# MACOS
+# GO
+export PATH=$PATH:~/go/bin
+
+# ngrok autocompletion
+if command -v ngrok &>/dev/null; then
+  eval "$(ngrok completion)"
+fi
+
+# kubectl krew
+export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
+{{ else if eq .chezmoi.os "linux" -}}
+# LINUX
+
+# BACKUP when i used docker with wsl
+# Start Docker daemon automatically when logging in if not running.
+# if [ -n "`service docker status | grep not`" ]; then
+#   sudo /usr/sbin/service docker start
+# fi
+
+
+# bun completions
+[ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
+# Moon
+# export PATH="$HOME/.moon/bin:$PATH"
+
+# proto
+export PROTO_HOME="$HOME/.proto";
+export PATH="$PROTO_HOME/shims:$PROTO_HOME/bin:$PATH";
+
+# cmake
+export PATH="/opt/cmake-3.30.0-linux-x86_64/bin:$PATH"
+
+# Turso
+export PATH="$HOME/.turso:$PATH"
+{{ end -}}
