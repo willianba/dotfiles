@@ -18,3 +18,6 @@ install.sh
 .zshrc
 {{ end }}
 
+{{ if eq .chezmoi.os "linux" }}
+.wezterm.lua
+{{ end }}
