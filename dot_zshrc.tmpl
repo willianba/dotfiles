@@ -9,7 +9,7 @@ source $ZSH/oh-my-zsh.sh
 export LANG=en_US.UTF-8
 export EDITOR='nvim'
 
-{{- if eq .chezmoi.os "linux" -}}
+{{ if eq .chezmoi.os "linux" -}}
 export PATH="$HOME/.local/bin:$PATH"
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 {{- end -}}
