@@ -3,6 +3,7 @@ local servers = {
   "cssls",
   "denols",
   "eslint",
+  "gopls",
   "html",
   "jsonls",
   "lua_ls",
@@ -110,7 +111,6 @@ return {
     end
 
     -- specific setup for some servers
-    require("lspconfig")["gleam"].setup({ capabilities })
     require("lspconfig")["ts_ls"].setup({
       capabilities,
       on_attach = no_conflict,

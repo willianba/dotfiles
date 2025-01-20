@@ -19,7 +19,7 @@ return {
       ensure_installed = {
         "bash",
         "css",
-        "gleam",
+        "go",
         "html",
         "javascript",
         "json",
