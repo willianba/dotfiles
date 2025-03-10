@@ -38,11 +38,14 @@ return {
     end,
     formatters_by_ft = {
       lua = { "stylua" },
-      javascript = { "deno_fmt", "prettierd", "prettier" },
-      typescript = { "deno_fmt", "prettierd", "prettier" },
-      astro = { "prettierd", "prettier" },
+      javascript = { "deno_fmt", "prettierd" },
+      typescript = { "deno_fmt", "prettierd" },
+      javascriptreact = { "deno_fmt", "prettierd" },
+      typescriptreact = { "deno_fmt", "prettierd" },
+      astro = { "prettierd" },
       rust = { "rustfmt" },
       terraform = { "terraform_fmt" },
+      go = { "gofumpt", "gofmt" },
     },
     formatters = {
       deno_fmt = {
