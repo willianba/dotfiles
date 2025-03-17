@@ -9,33 +9,48 @@ source $ZSH/oh-my-zsh.sh
 export LANG=en_US.UTF-8
 export EDITOR='nvim'
 
+export PATH="$PATH:$HOME/.local/bin"
+
 {{ if eq .chezmoi.os "linux" -}}
-export PATH="$HOME/.local/bin:$PATH"
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 {{- end -}}
 
 # apps configuration
+## GO
+export GOPATH="$HOME/go"
+export GOBIN="$GOPATH/bin"
+export GO111MODULE=on
+export PATH="$PATH:$GOBIN"
+
+## bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$PATH:$BUN_INSTALL/bin"
+
+## bun completions
+[ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
+
+## deno
+export DENO_INSTALL="$HOME/.deno"
+export PATH="$PATH:$DENO_INSTALL/bin"
+
+## mise
+eval "$($HOME/.local/bin/mise activate zsh)"
+
+## Moon
+export PATH="$PATH:$HOME/.moon/bin"
+
 ## Zoxide
 if command -v zoxide &>/dev/null; then
   eval "$(zoxide init zsh --cmd cd)"
 fi
 
-## deno
-export DENO_INSTALL="$HOME/.deno"
-export PATH="$DENO_INSTALL/bin:$PATH"
-
-# mise
-eval "$($HOME/.local/bin/mise activate zsh)"
-
-# Moon
-export PATH="$HOME/.moon/bin:$PATH"
-
-# fzf
+## fzf
 source <(fzf --zsh)
 ## Use fd instead of fzf
 export FZF_DEFAULT_COMMAND="fd --hidden --strip-cwd-prefix --exclude .git"
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_ALT_C_COMMAND="fd --type=d --hidden --strip-cwd-prefix --exclude .git"
+
 # Use fd (https://github.com/sharkdp/fd) for listing path candidates.
 # - The first argument to the function ($1) is the base path to start traversal
 # - See the source code (completion.{bash,zsh}) for the details.
@@ -50,8 +65,9 @@ _fzf_compgen_dir() {
 
 {{ if eq .chezmoi.os "darwin" -}}
 # MACOS
-# GO
-export PATH=$PATH:~/go/bin
+
+# Goose default color scheme
+export GOOSE_CLI_THEME=light
 
 # ngrok autocompletion
 if command -v ngrok &>/dev/null; then
@@ -60,25 +76,18 @@ fi
 
 # kubectl krew
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
-{{ else if eq .chezmoi.os "linux" -}}
+
+{{- else if eq .chezmoi.os "linux" -}}
 # LINUX
+
+# Goose default color scheme
+export GOOSE_CLI_THEME=dark
 
 # BACKUP when i used docker with wsl
 # Start Docker daemon automatically when logging in if not running.
 # if [ -n "`service docker status | grep not`" ]; then
 #   sudo /usr/sbin/service docker start
 # fi
-
-
-# bun completions
-[ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
-
-# bun
-export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
-
-# Moon
-# export PATH="$HOME/.moon/bin:$PATH"
 
 # proto
 export PROTO_HOME="$HOME/.proto";
