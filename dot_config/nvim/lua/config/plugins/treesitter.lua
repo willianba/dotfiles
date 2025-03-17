@@ -27,6 +27,7 @@ return {
         "markdown",
         "rust",
         "typescript",
+        "yaml",
         "vim",
       },
       rainbow = {

@@ -3,6 +3,7 @@ local servers = {
   "cssls",
   "denols",
   "eslint",
+  "gopls",
   "html",
   "jsonls",
   "lua_ls",
@@ -15,6 +16,7 @@ local servers = {
 
 local tools = {
   "eslint_d",
+  "gofumpt",
   "luacheck",
   "markdownlint",
   "prettier",
