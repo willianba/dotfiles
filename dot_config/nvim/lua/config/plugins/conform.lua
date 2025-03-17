@@ -17,6 +17,20 @@ end, {
   desc = "Enable format on save",
 })
 
+local function select_formatter()
+  local deno_file = vim.fn.glob("./deno.json")
+  if deno_file ~= "" then
+    return { "deno_fmt" }
+  end
+
+  local node_file = vim.fn.glob("./package.json")
+  if node_file ~= "" then
+    return { "prettierd" }
+  end
+
+  return { "prettierd" }
+end
+
 return {
   "stevearc/conform.nvim",
   event = "BufWritePre",
@@ -38,10 +52,10 @@ return {
     end,
     formatters_by_ft = {
       lua = { "stylua" },
-      javascript = { "deno_fmt", "prettierd" },
-      typescript = { "deno_fmt", "prettierd" },
-      javascriptreact = { "deno_fmt", "prettierd" },
-      typescriptreact = { "deno_fmt", "prettierd" },
+      javascript = select_formatter(),
+      typescript = select_formatter(),
+      javascriptreact = select_formatter(),
+      typescriptreact = select_formatter(),
       astro = { "prettierd" },
       rust = { "rustfmt" },
       terraform = { "terraform_fmt" },
