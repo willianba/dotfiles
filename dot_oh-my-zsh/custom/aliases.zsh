@@ -1,6 +1,7 @@
 alias reload="exec zsh"
 
 alias lg="lazygit"
+alias ld="lazydocker"
 alias z="zoxide"
 
 alias ls="eza"
