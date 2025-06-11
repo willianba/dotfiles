@@ -1,6 +1,8 @@
 README.md
 TODO.md
 install.sh
+**/history.txt
+**/private_history.txt
 
 {{ if ne .chezmoi.os "darwin" }}
 .config/aerospace/
