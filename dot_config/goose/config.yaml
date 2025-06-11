@@ -1,4 +1,5 @@
-GOOSE_CLI_MIN_PRIORITY: 0.0
+GOOSE_MODEL: claude-sonnet-4-20250514
+GOOSE_PROVIDER: anthropic
 extensions:
   computer-controller:
     enabled: true
@@ -10,10 +11,30 @@ extensions:
     name: developer
     timeout: 300
     type: builtin
+  fetch:
+    args:
+    - mcp-server-fetch
+    cmd: uvx
+    enabled: true
+    name: fetch
+    timeout: 300
+    type: stdio
+  github:
+    args:
+    - run
+    - --allow-net
+    - npm:@modelcontextprotocol/server-github
+    cmd: deno
+    enabled: true
+    envs:
+      GITHUB_PERSONAL_ACCESS_TOKEN: $GITHUB_TOKEN
+    name: github
+    timeout: 300
+    type: stdio
   knowledge-graph-memory:
     args:
     - run
-    - 'npm:@modelcontextprotocol/server-memory'
+    - npm:@modelcontextprotocol/server-memory
     cmd: deno
     enabled: true
     envs: {}
@@ -28,7 +49,8 @@ extensions:
   sequential-thinking:
     args:
     - run
-    - 'npm:@modelcontextprotocol/server-sequential-thinking'
+    - --allow-env
+    - npm:@modelcontextprotocol/server-sequential-thinking
     cmd: deno
     enabled: true
     envs: {}
@@ -36,7 +58,6 @@ extensions:
     timeout: 300
     type: stdio
 OPENAI_BASE_PATH: v1/chat/completions
+GOOSE_CLI_MIN_PRIORITY: 0.0
+GOOSE_MODE: auto
 OPENAI_HOST: https://api.openai.com
-GOOSE_PROVIDER: openai
-GOOSE_MODE: approve
-GOOSE_MODEL: gpt-4o
