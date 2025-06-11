@@ -3,7 +3,7 @@ return {
   build = ":TSUpdate",
   event = "BufReadPost",
   dependencies = {
-    { "p00f/nvim-ts-rainbow" },
+    { "HiPhish/rainbow-delimiters.nvim" },
     { "windwp/nvim-ts-autotag" },
     {
       "nvim-treesitter/nvim-treesitter-context",
@@ -29,11 +29,6 @@ return {
         "typescript",
         "yaml",
         "vim",
-      },
-      rainbow = {
-        enable = true,
-        extended_mode = true, -- Also highlight non-bracket delimiters like html tags, boolean or table: lang -> boolean
-        max_file_lines = nil, -- Do not enable for files with more than n lines, int
       },
       autotag = {
         enable = true,
