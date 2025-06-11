@@ -63,6 +63,18 @@ local keys = {
     mods = "ALT",
     action = wezterm.action.ShowLauncherArgs({ flags = "FUZZY|WORKSPACES" }),
   },
+  {
+    key = "o",
+    mods = "LEADER",
+    action = wezterm.action.PaneSelect,
+  },
+  {
+    key = "p",
+    mods = "LEADER",
+    action = wezterm.action.PaneSelect({
+      mode = "SwapWithActive",
+    }),
+  },
 }
 
 for i = 1, 9 do
