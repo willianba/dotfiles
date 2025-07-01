@@ -12,7 +12,10 @@ install.sh
 .config/komorebi/
 .config/yasb/
 .config/whkdrc
-{{ else }}
+{{ end }}
+
+{{ if eq .chezmoi.os "windows" }}
+.config/fish
 .config/lazygit/
 .config/nvim/
 .config/superfile/
