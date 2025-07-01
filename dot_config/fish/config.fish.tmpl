@@ -1,0 +1,109 @@
+# Environment Variables
+set -gx LANG en_US.UTF-8
+set -gx EDITOR nvim
+
+# Path Configuration
+fish_add_path $HOME/.local/bin
+
+# Apps Configuration
+## GO
+if test -d $HOME/go/bin
+  set -gx GOPATH $HOME/go
+  set -gx GOBIN $GOPATH/bin
+  set -gx GO111MODULE on
+  fish_add_path $GOBIN
+end
+
+## Deno
+if test -d $HOME/.deno/bin
+  set -gx DENO_INSTALL $HOME/.deno
+  fish_add_path $DENO_INSTALL/bin
+end
+
+## Moon
+if test -d $HOME/.moon/bin
+  fish_add_path $HOME/.moon/bin
+end
+
+## Cargo (Rust)
+if test -d $HOME/.cargo/bin
+  fish_add_path $HOME/.cargo/bin
+end
+
+# Tool Initializations
+## Mise (if available)
+if test -f $HOME/.local/bin/mise
+  $HOME/.local/bin/mise activate fish | source
+end
+
+## Zoxide (if available)
+if command -v zoxide >/dev/null 2>&1
+  zoxide init fish --cmd cd | source
+end
+
+## fzf (if available)
+if command -v fzf >/dev/null 2>&1
+  fzf --fish | source
+
+  set -gx FZF_DEFAULT_COMMAND "fd --hidden --strip-cwd-prefix --exclude .git"
+  set -gx FZF_CTRL_T_COMMAND "$FZF_DEFAULT_COMMAND"
+  set -gx FZF_ALT_C_COMMAND "fd --type=d --hidden --strip-cwd-prefix --exclude .git"
+end
+
+{{ if eq .chezmoi.os "linux" -}}
+# Brew
+if test -d /home/linuxbrew/.linuxbrew/bin
+  eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+end
+
+## Bun
+if test -d $HOME/.bun/bin
+  set -gx BUN_INSTALL $HOME/.bun
+  fish_add_path $BUN_INSTALL/bin
+end
+
+# Goose default color scheme
+set -gx GOOSE_CLI_THEME dark
+{{- end -}}
+
+{{ if eq .chezmoi.os "darwin" -}}
+# Goose default color scheme
+set -gx GOOSE_CLI_THEME light
+
+## Bun
+if test -d $HOME/.bun/bin
+  set -gx BUN_INSTALL $HOME/.bun
+  fish_add_path $BUN_INSTALL/bin
+
+  if test -s $BUN_INSTALL/_bun
+    source $BUN_INSTALL/_bun
+  end
+end
+
+## kubectl krew
+if test -d $HOME/.krew/bin
+  fish_add_path $HOME/.krew/bin
+end
+{{- end }}
+
+# Fish stuff
+# Git configuration for better Fish integration
+if command -v git >/dev/null 2>&1
+  set -g fish_git_dirty_color red
+  set -g fish_git_not_dirty_color green
+end
+
+# Starship prompt
+if command -v starship >/dev/null 2>&1
+  starship init fish | source
+end
+
+# Vi mode (Fish has built-in vi mode)
+fish_vi_key_bindings
+
+# Update starship theme
+set_fish_theme
+
+# Welcome message suppression (optional)
+set -U fish_greeting ""
+
