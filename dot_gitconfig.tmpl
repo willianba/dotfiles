@@ -53,6 +53,13 @@
   # untrackedCache = true
 [merge]
   # (just 'diff3' if git version < 2.3)
-  # conflictstyle = zdiff3 
+  # conflictstyle = zdiff3
 [pull]
   # rebase = true
+
+{{ if eq .chezmoi.os "windows" }}
+[safe]
+  directory = C:/Users/willianba/scoop/buckets/game
+  directory = C:/Users/willianba/scoop/buckets/version
+  directory = C:/Users/willianba/scoop/buckets/extras
+{{ end }}
