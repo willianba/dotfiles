@@ -12,7 +12,7 @@ alt + shift + o         : komorebic reload-configuration
 
 alt + shift + q         : komorebic stop
 alt + q                 : komorebic close
-alt + m                 : komorebic minimize
+alt + w                 : komorebic minimize
 
 # Focus windows
 alt + h                 : komorebic focus left
@@ -45,8 +45,8 @@ alt + shift + oem_plus  : komorebic resize-axis vertical increase
 alt + shift + oem_minus : komorebic resize-axis vertical decrease
 
 # Manipulate windows
-alt + t                 : komorebic toggle-float
-alt + shift + f         : komorebic toggle-monocle
+alt + v                 : komorebic toggle-float
+alt + f                 : komorebic toggle-monocle
 
 # Window manager options
 alt + shift + r         : komorebic retile
