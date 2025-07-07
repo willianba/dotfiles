@@ -1,26 +1,5 @@
 local wezterm = require("wezterm")
 
-local padding = 8
-local windows_font_size = 14
-local mac_font_size = 17
-
-local wsl_default_domain = "WSL:Debian"
-local is_windows = wezterm.target_triple == "x86_64-pc-windows-msvc"
-local is_mac = wezterm.target_triple == "aarch64-apple-darwin"
-
-local wsl_domains = wezterm.default_wsl_domains()
-for _, dom in ipairs(wsl_domains) do
-  dom.default_cwd = "~"
-end
-
-local function scheme_for_appearance(appearance)
-  if appearance:find("Dark") then
-    return is_windows and "Catppuccin Mocha" or "Catppuccin Macchiato"
-  else
-    return "Catppuccin Latte"
-  end
-end
-
 local keys = {
   { key = "a", mods = "LEADER|CTRL", action = wezterm.action({ SendString = "\x01" }) },
   { key = "v", mods = "LEADER", action = wezterm.action({ SplitHorizontal = { domain = "CurrentPaneDomain" } }) },
@@ -48,7 +27,7 @@ local keys = {
     mods = "CTRL|SHIFT",
     action = wezterm.action.PromptInputLine({
       description = "=== Rename current tab ===",
-      action = wezterm.action_callback(function(window, pane, line)
+      action = wezterm.action_callback(function(window, _, line)
         -- line will be nil if the user cancelled the input
         -- and empty if they hit enter without typing anything
         -- otherwise it will contain the text they typed
@@ -80,16 +59,19 @@ for i = 1, 9 do
   })
 end
 
-return {
+local function scheme_for_appearance(appearance)
+  if appearance:find("Dark") then
+    return "Catppuccin Macchiato"
+  else
+    return "Catppuccin Latte"
+  end
+end
+
+local padding = 8
+local config = {
   -- general
   check_for_updates = true,
-  native_macos_fullscreen_mode = is_mac and true or nil,
-  default_domain = is_windows and wsl_default_domain or nil,
-  default_prog = is_windows and { "wsl.exe" } or nil,
-  launch_menu = is_windows and {
-    { label = "PowerShell Core", args = { "pwsh.exe" }, domain = { DomainName = "local" } },
-  } or nil,
-  wsl_domains = wsl_domains,
+  font = wezterm.font("Hack Nerd Font"),
 
   -- appearance
   color_scheme = scheme_for_appearance(wezterm.gui.get_appearance()),
@@ -105,9 +87,33 @@ return {
   initial_cols = 140,
   enable_scroll_bar = true,
 
-  -- fonts
-  font = wezterm.font("Hack Nerd Font"),
-  font_size = is_windows and windows_font_size or mac_font_size,
+  -- behavior
   leader = { key = "a", mods = "CTRL" },
   keys = keys,
 }
+
+{{ if eq .chezmoi.os "windows" -}}
+local wsl_domains = wezterm.default_wsl_domains()
+for _, dom in ipairs(wsl_domains) do
+  dom.default_cwd = "~"
+end
+
+config["font_size"] = 14
+config["default_domain"] = "WSL:Debian"
+config["default_prog"] = { "wsl.exe" }
+config["launch_menu"] = {
+  {
+    label = "PowerShell Core",
+    args = { "pwsh.exe" },
+    domain = { DomainName = "local" }
+  }
+}
+config["wsl_domains"] = wsl_domains
+{{- end }}
+
+{{- if eq .chezmoi.os "darwin" -}}
+config["native_macos_fullscreen_mode"] = true
+config["font_size"] = 17
+{{- end }}
+
+return config
