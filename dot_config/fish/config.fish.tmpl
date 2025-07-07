@@ -36,10 +36,6 @@ if test -f $HOME/.local/bin/mise
   $HOME/.local/bin/mise activate fish | source
 end
 
-## Zoxide (if available)
-if command -v zoxide >/dev/null 2>&1
-  zoxide init fish --cmd cd | source
-end
 
 ## fzf (if available)
 if command -v fzf >/dev/null 2>&1
@@ -64,6 +60,26 @@ end
 
 # Goose default color scheme
 set -gx GOOSE_CLI_THEME dark
+
+# Proto
+if test -d $HOME/.proto
+  set -gx PROTO_HOME $HOME/.proto
+  fish_add_path $PROTO_HOME/shims
+  fish_add_path $PROTO_HOME/bin
+end
+
+# cmake
+# should the version not be hardcoded?
+if test -d /opt/cmake-3.30.0-linux-x86_64/bin
+  set -gx CMAKE_HOME /opt/cmake-3.30.0-linux-x86_64
+  fish_add_path $CMAKE_HOME/bin
+end
+
+# Turso
+if test -d $HOME/.turso
+  set -gx TURSO_HOME $HOME/.turso
+  fish_add_path $TURSO_HOME/bin
+end
 {{- end -}}
 
 {{ if eq .chezmoi.os "darwin" -}}
@@ -107,3 +123,7 @@ set_fish_theme
 # Welcome message suppression (optional)
 set -U fish_greeting ""
 
+## Zoxide (if available)
+if command -v zoxide >/dev/null 2>&1
+  zoxide init fish --cmd cd | source
+end
