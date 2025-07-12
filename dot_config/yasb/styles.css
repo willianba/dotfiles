@@ -1,37 +1,71 @@
 :root {
-  --rosewater: #f4dbd6;
-  --flamingo: #f0c6c6;
-  --pink: #f5bde6;
-  --mauve: #c6a0f6;
-  --red: #ed8796;
-  --maroon: #ee99a0;
-  --peach: #f5a97f;
-  --yellow: #eed49f;
-  --green: #a6da95;
-  --teal: #8bd5ca;
-  --sky: #91d7e3;
-  --sapphire: #7dc4e4;
-  --blue: #8aadf4;
-  --lavender: #b7bdf8;
-  --text: #cad3f5;
-  --subtext1: #b8c0e0;
-  --subtext0: #a5adcb;
-  --overlay2: #939ab7;
-  --overlay1: #8087a2;
-  --overlay0: #6e738d;
-  --surface2: #5b6078;
-  --surface1: #494d64;
-  --surface0: #363a4f;
-  --base: #24273a;
-  --mantle: #1e2030;
-  --crust: #181926;
   --transparent: rgba(0, 0, 0, 0.0);
+
+  /* Catppuccin Frappe */
+  --rosewater: #dc8a78;
+  --flamingo: #dd7878;
+  --pink: #ea76cb;
+  --mauve: #8839ef;
+  --red: #d20f39;
+  --maroon: #e64553;
+  --peach: #fe640b;
+  --yellow: #df8e1d;
+  --green: #40a02b;
+  --teal: #179299;
+  --sky: #04a5e5;
+  --sapphire: #209fb5;
+  --blue: #1e66f5;
+  --lavender: #7287fd;
+  --text: #4c4f69;
+  --subtext1: #5c5f77;
+  --subtext0: #6c6f85;
+  --overlay2: #7c7f93;
+  --overlay1: #8c8fa1;
+  --overlay0: #9ca0b0;
+  --surface2: #acb0be;
+  --surface1: #bcc0cc;
+  --surface0: #ccd0da;
+  --base: #eff1f5;
+  --mantle: #e6e9ef;
+  --crust: #dce0e8;
+
+  /* Catppuccin Macchiato */
+  --rosewater-dark: #f4dbd6;
+  --flamingo-dark: #f0c6c6;
+  --pink-dark: #f5bde6;
+  --mauve-dark: #c6a0f6;
+  --red-dark: #ed8796;
+  --maroon-dark: #ee99a0;
+  --peach-dark: #f5a97f;
+  --yellow-dark: #eed49f;
+  --green-dark: #a6da95;
+  --teal-dark: #8bd5ca;
+  --sky-dark: #91d7e3;
+  --sapphire-dark: #7dc4e4;
+  --blue-dark: #8aadf4;
+  --lavender-dark: #b7bdf8;
+  --text-dark: #cad3f5;
+  --subtext1-dark: #b8c0e0;
+  --subtext0-dark: #a5adcb;
+  --overlay2-dark: #939ab7;
+  --overlay1-dark: #8087a2;
+  --overlay0-dark: #6e738d;
+  --surface2-dark: #5b6078;
+  --surface1-dark: #494d64;
+  --surface0-dark: #363a4f;
+  --base-dark: #24273a;
+  --mantle-dark: #1e2030;
+  --crust-dark: #181926;
 }
 
 * {
   font-size: 16px;
   font-family: "Hack Nerd Font";
   color: var(--text);
+}
+
+*.dark * {
+  color: var(--text-dark);
 }
 
 .icon {
@@ -44,11 +78,15 @@
 
 .yasb-bar {
   padding: 0 16px 0 6px;
-  background-color: var(--base);
+  background-color: #eff1f5;
   border-top-left-radius: 0px;
   border-top-right-radius: 0px;
   border-bottom-right-radius: 8px;
   border-bottom-left-radius: 8px;
+}
+
+.yasb-bar.dark {
+  background-color: #24273a;
 }
 
 .separator-widget .icon {
@@ -67,6 +105,10 @@
   font-weight: 600;
 }
 
+*.dark .komorebi-workspaces .offline-status {
+  color: var(--subtext1-dark);
+}
+
 .komorebi-workspaces .ws-btn {
   border: none;
   background-color: var(--surface1);
@@ -77,22 +119,42 @@
   color: var(--transparent);
 }
 
+*.dark .komorebi-workspaces .ws-btn {
+  background-color: var(--surface1-dark);
+}
+
 .komorebi-workspaces .ws-btn:hover {
   background-color: var(--surface2);
+}
+
+*.dark .komorebi-workspaces .ws-btn:hover {
+  background-color: var(--surface2-dark);
 }
 
 .komorebi-workspaces .ws-btn.populated {
   background-color: var(--overlay0);
 }
 
+*.dark .komorebi-workspaces .ws-btn.populated {
+  background-color: var(--overlay0-dark);
+}
+
 .komorebi-workspaces .ws-btn.populated:hover {
   background-color: var(--overlay1);
 }
 
+*.dark .komorebi-workspaces .ws-btn.populated:hover {
+  background-color: var(--overlay1-dark);
+}
+
 .komorebi-workspaces .ws-btn.active {
-  background-color: var(--subtext0);
+  background-color: var(--overlay2);
   width: 28px;
   height: 10px;
+}
+
+*.dark .komorebi-workspaces .ws-btn.active {
+  background-color: var(--overlay2-dark);
 }
 
 .media-widget {
@@ -101,6 +163,10 @@
   margin-right: 8px;
   border-radius: 16px;
   background-color: var(--mantle);
+}
+
+*.dark .media-widget {
+  background-color: var(--mantle-dark);
 }
 
 .media-widget .label {
@@ -114,8 +180,16 @@
   font-family: "Segoe Fluent Icons";
 }
 
+*.dark .media-widget .btn {
+  color: var(--text-dark);
+}
+
 .media-widget .btn:hover {
   color: var(--blue);
+}
+
+*.dark .media-widget .btn:hover {
+  color: var(--blue-dark);
 }
 
 .media-widget .btn.prev {
@@ -127,10 +201,19 @@
   border-radius: 14px;
 }
 
+*.dark .media-widget .btn.play {
+  background-color: var(--surface0-dark);
+}
+
 .media-widget .btn.disabled:hover,
 .media-widget .btn.disabled {
   color: var(--overlay0);
   background-color: var(--transparent);
+}
+
+*.dark .media-widget .btn.disabled:hover,
+*.dark .media-widget .btn.disabled {
+  color: var(--overlay0-dark);
 }
 
 .weather-widget .icon {
@@ -142,30 +225,54 @@
   color: var(--yellow);
 }
 
+*.dark .weather-widget .icon.sunnyDay {
+  color: var(--yellow-dark);
+}
+
 .weather-widget .icon.clearNight {
   color: var(--sky);
+}
+
+*.dark .weather-widget .icon.clearNight {
+  color: var(--sky-dark);
 }
 
 .cpu-widget .icon {
   color: var(--red);
 }
 
+*.dark .cpu-widget .icon {
+  color: var(--red-dark);
+}
+
 .memory-widget .icon {
   color: var(--green);
+}
+
+*.dark .memory-widget .icon {
+  color: var(--green-dark);
 }
 
 .volume-widget .icon {
   color: var(--mauve);
 }
 
+*.dark .volume-widget .icon {
+  color: var(--mauve-dark);
+}
+
 .calendar {
   background-color: var(--crust);
+}
+
+*.dark .calendar {
+  background-color: var(--crust-dark);
 }
 
 .calendar .calendar-table,
 .calendar .calendar-table::item {
   background-color: var(--crust);
-  color: rgba(162, 177, 196, 0.85);
+  color: var(--text);
   font-family: "Segoe UI";
   margin: 0;
   padding: 0;
@@ -173,8 +280,18 @@
   outline: none;
 }
 
+*.dark .calendar .calendar-table,
+*.dark .calendar .calendar-table::item {
+  background-color: var(--crust-dark);
+  color: var(--text-dark);
+}
+
 .calendar .calendar-table::item:selected {
   color: var(--red);
+}
+
+*.dark .calendar .calendar-table::item:selected {
+  color: var(--red-dark);
 }
 
 .calendar .day-label {
@@ -191,6 +308,12 @@
   max-width: 180px;
 }
 
+*.dark .calendar .day-label,
+*.dark .calendar .month-label,
+*.dark .calendar .date-label {
+  color: var(--text-dark);
+}
+
 .calendar .month-label {
   font-weight: normal;
 }
@@ -202,6 +325,10 @@
   margin-top: -20px;
 }
 
+*.dark .calendar .date-label {
+  color: var(--text-dark);
+}
+
 .home-widget {
   padding: 0 4px 0 12px;
 }
@@ -210,12 +337,24 @@
   color: var(--lavender);
 }
 
+*.dark .home-widget .icon {
+  color: var(--lavender-dark);
+}
+
 .home-widget .icon:hover {
   color: var(--mauve);
 }
 
+*.dark .home-widget .icon:hover {
+  color: var(--mauve-dark);
+}
+
 .home-menu {
   background-color: var(--crust);
+}
+
+*.dark .home-menu {
+  background-color: var(--crust-dark);
 }
 
 .home-menu .menu-item {
@@ -226,9 +365,17 @@
   font-weight: 600;
 }
 
+*.dark .home-menu .menu-item {
+  color: var(--text-dark);
+}
+
 .home-menu .menu-item:hover {
   background-color: var(--surface0);
   color: #fff;
+}
+
+*.dark .home-menu .menu-item:hover {
+  background-color: var(--surface0-dark);
 }
 
 .home-menu .separator {
@@ -236,14 +383,26 @@
   background-color: var(--surface1);
 }
 
+*.dark .home-menu .separator {
+  background-color: var(--surface1-dark);
+}
+
 .weather-card {
   background-color: var(--crust);
+}
+
+*.dark .weather-card {
+  background-color: var(--crust-dark);
 }
 
 .weather-card-today {
   border: 1px solid #282936;
   border-radius: 8px;
   background-color: var(--crust);
+}
+
+*.dark .weather-card-today {
+  background-color: var(--crust-dark);
 }
 
 .weather-card-today .label {
@@ -265,10 +424,19 @@
   padding: 5px 0;
 }
 
+*.dark .weather-card-today .label.alert {
+  background-color: var(--yellow-dark);
+  border: 1px solid var(--yellow-dark);
+}
+
 .weather-card-day {
   border: 1px solid #45475a;
   border-radius: 8px;
   background-color: var(--crust);
+}
+
+*.dark .weather-card-day {
+  background-color: var(--crust-dark);
 }
 
 .weather-card-day .label {

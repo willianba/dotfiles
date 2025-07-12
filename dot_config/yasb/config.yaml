@@ -70,9 +70,9 @@ widgets:
         about: "Sobre este PC"
         task_manager: "Gerenciador de Tarefas"
       label_shadow:
-        enabled: true
+        enabled: false
         color: "black"
-        radius: 3
+        radius: 2
         offset: [1, 1]
   komorebi_workspaces:
     type: "komorebi.workspaces.WorkspaceWidget"
