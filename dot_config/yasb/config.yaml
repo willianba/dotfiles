@@ -160,7 +160,7 @@ widgets:
     type: "yasb.memory.MemoryWidget"
     options:
       label: "<span>\uefc5</span> {virtual_mem_used}"
-      label_alt: "<span>\uefc5</span> {virtual_mem_used}"
+      label_alt: "<span>\uefc5</span> {virtual_mem_percent}%"
       update_interval: 2000
       callbacks:
         on_right: "exec cmd /c Taskmgr"
