@@ -444,3 +444,69 @@
 .weather-card-day .label {
   font-size: 14px;
 }
+
+.volume-slider {
+  border: none;
+}
+
+.volume-slider::groove {
+  background-color: var(--mauve);
+  border-radius: 2px;
+  height: 4px;
+  margin: 4px 0;
+}
+
+*.dark .volume-slider::groove {
+  background-color: var(--mauve-dark);
+}
+
+.volume-slider::handle{
+  background-color: var(--mauve);
+  border: none;
+  height: 16px;
+  width: 10px;
+  margin: -8px 0;
+  border-radius: 2px;
+}
+
+*.dark .volume-slider::handle{
+  background-color: var(--mauve-dark);
+}
+
+.audio-menu {
+  background-color: var(--crust);
+}
+
+*.dark .audio-menu {
+  background-color: var(--crust-dark);
+}
+
+.audio-container .device {
+  padding: 6px 8px 6px 4px;
+  margin: 2px 0;
+  font-size: 14px;
+  border-radius: 4px;
+  background-color: var(--crust);
+  border: 1px solid var(--overlay0);
+}
+
+*.dark .audio-container .device {
+  background-color: var(--crust-dark);
+  border: 1px solid var(--overlay0-dark);
+}
+
+.audio-container .device.selected {
+  background-color: var(--surface0);
+}
+
+*.dark .audio-container .device.selected {
+  background-color: var(--surface0-dark);
+}
+
+.audio-container .device:hover {
+  background-color: var(--surface1);
+}
+
+*.dark .audio-container .device:hover {
+  background-color: var(--surface1-dark);
+}
