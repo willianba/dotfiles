@@ -396,12 +396,13 @@
 }
 
 .weather-card-today {
-  border: 1px solid #282936;
+  border: 1px solid var(--overlay0);
   border-radius: 8px;
   background-color: var(--crust);
 }
 
 *.dark .weather-card-today {
+  border: 1px solid var(--overlay0-dark);
   background-color: var(--crust-dark);
 }
 
@@ -430,12 +431,13 @@
 }
 
 .weather-card-day {
-  border: 1px solid #45475a;
+  border: 1px solid var(--overlay0);
   border-radius: 8px;
   background-color: var(--crust);
 }
 
 *.dark .weather-card-day {
+  border: 1px solid var(--overlay0-dark);
   background-color: var(--crust-dark);
 }
 
