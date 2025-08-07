@@ -7,36 +7,37 @@ alt + shift + o         : komorebic reload-configuration
 
 # App shortcuts - these require shell to be pwsh / powershell
 # The apps will be focused if open, or launched if not open
-# alt + f                 : if ($wshell.AppActivate('Firefox') -eq $False) { start firefox }
-# alt + b                 : if ($wshell.AppActivate('Chrome') -eq $False) { start chrome }
+alt + b                 : if ($wshell.AppActivate('Zen') -eq $False) { start zen }
+alt + t                 : if ($wshell.AppActivate('WezTerm') -eq $False) { start wezterm }
 
+alt + i                 : komorebic toggle-shortcuts
 alt + shift + q         : komorebic stop
 alt + q                 : komorebic close
-alt + w                 : komorebic minimize
+alt + win + m           : komorebic minimize
 
 # Focus windows
-alt + h                 : komorebic focus left
-alt + j                 : komorebic focus down
-alt + k                 : komorebic focus up
-alt + l                 : komorebic focus right
+alt + left                 : komorebic focus left
+alt + down                 : komorebic focus down
+alt + up                   : komorebic focus up
+alt + right                : komorebic focus right
 
 # Move windows
-alt + shift + h         : komorebic move left
-alt + shift + j         : komorebic move down
-alt + shift + k         : komorebic move up
-alt + shift + l         : komorebic move right
-alt + shift + space     : komorebic promote
+alt + shift + left         : komorebic move left
+alt + shift + down         : komorebic move down
+alt + shift + up           : komorebic move up
+alt + shift + right        : komorebic move right
+# alt + shift + space     : komorebic promote
 
 # Stack windows
-alt + ctrl + h          : komorebic stack left
-alt + ctrl + j          : komorebic stack down
-alt + ctrl + k          : komorebic stack up
+alt + ctrl + j          : komorebic stack left
+alt + ctrl + k          : komorebic stack down
+alt + ctrl + i          : komorebic stack up
 alt + ctrl + l          : komorebic stack right
-alt + shift + oem_1     : komorebic stack-all # oem_1 is ;
-alt + oem_2             : komorebic unstack # oem_1 is /
-alt + shift + oem_2     : komorebic unstack-all #oem_2 is /
-alt + shift + oem_4     : komorebic cycle-stack previous # oem_4 is [{
-alt + shift + oem_6     : komorebic cycle-stack next # oem_6 is ]}
+alt + g                 : komorebic stack-all
+alt + j                 : komorebic unstack-all
+alt + h                 : komorebic unstack
+alt + win + left        : komorebic cycle-stack previous
+alt + win + right       : komorebic cycle-stack next
 
 # Resize
 alt + oem_plus          : komorebic resize-axis horizontal increase
