@@ -4,7 +4,7 @@ end
 
 local function get_lsp_name()
   local buf_ft = vim.bo.filetype
-  local clients = vim.lsp.get_active_clients()
+  local clients = vim.lsp.get_clients()
   local _, devicons = pcall(require, "nvim-web-devicons")
   local lsp_icon = devicons.get_icon("lsp", buf_ft)
 

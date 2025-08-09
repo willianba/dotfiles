@@ -24,7 +24,7 @@ local tools = {
 }
 
 local no_conflict = function(client)
-  local active_clients = vim.lsp.get_active_clients()
+  local active_clients = vim.lsp.get_clients()
   if client.name == "denols" then
     for _, client_ in pairs(active_clients) do
       -- stop ts_ls if denols is already active

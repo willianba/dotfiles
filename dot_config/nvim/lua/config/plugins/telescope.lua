@@ -4,7 +4,7 @@ local project_files = function()
     opts.show_untracked = true
     require("telescope.builtin").git_files(opts)
   else
-    local client = vim.lsp.get_active_clients()[1]
+    local client = vim.lsp.get_clients()[1]
     if client then
       opts.cwd = client.config.root_dir
     end
