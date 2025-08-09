@@ -1,5 +1,4 @@
 return {
-  enabled = true,
   "zbirenbaum/copilot.lua",
   event = "BufReadPost",
   config = function()

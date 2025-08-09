@@ -9,17 +9,19 @@ local servers = {
   "lua_ls",
   "marksman",
   "rust_analyzer",
-  "terraformls",
+  "terraform-ls",
   "ts_ls",
   "yamlls",
 }
 
 local tools = {
+  "deno",
   "eslint_d",
   "gofumpt",
+  "goimports",
   "luacheck",
   "markdownlint",
-  "prettier",
+  "prettierd",
   "stylua",
 }
 
