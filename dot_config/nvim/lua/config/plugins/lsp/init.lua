@@ -9,19 +9,20 @@ local servers = {
   "lua_ls",
   "marksman",
   "rust_analyzer",
-  "terraformls",
-  "ts_ls", -- Updated to modern name for newer nvim-lspconfig
+  "terraform-ls",
+  "ts_ls",
   "yamlls",
 }
 
 local tools = {
+  "deno",
   "eslint_d",
   "gofumpt",
   "goimports",
-  "prettier",
-  "rustfmt",
+  "luacheck",
+  "markdownlint",
+  "prettierd",
   "stylua",
-  "terraform-ls",
 }
 
 local no_conflict = function(client)
