@@ -1,5 +1,4 @@
 return {
-  enabled = false, -- Disabled due to missing node.js dependency
   "zbirenbaum/copilot.lua",
   event = "BufReadPost",
   config = function()
