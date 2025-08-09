@@ -85,6 +85,7 @@ end
 {{ if eq .chezmoi.os "darwin" -}}
 # Goose default color scheme
 set -gx GOOSE_CLI_THEME light
+set -gx XDG_CONFIG_HOME "$HOME/.config"
 
 ## Bun
 if test -d $HOME/.bun/bin
