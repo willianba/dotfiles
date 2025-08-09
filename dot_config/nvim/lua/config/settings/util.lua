@@ -14,6 +14,8 @@ end
 M.toggle_dark_mode = function()
   local theme_color = vim.o.background == "dark" and "light" or "dark"
   vim.o.background = theme_color
+  -- Refresh lualine to update its theme
+  require("lualine").setup({ options = { theme = vim.g.colors_name } })
 end
 
 M.toggle_theme = function()
