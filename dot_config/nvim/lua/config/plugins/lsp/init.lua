@@ -1,6 +1,7 @@
 local servers = {
   "bashls",
   "cssls",
+  "denols",
   "gopls",
   "html",
   "jsonls",
@@ -8,6 +9,7 @@ local servers = {
   "marksman",
   "rust_analyzer",
   "terraformls",
+  "ts_ls",
   "yamlls",
 }
 
@@ -20,25 +22,6 @@ local tools = {
   "prettierd",
   "stylua",
 }
-
-local no_conflict = function(client, bufnr)
-  local active_clients = vim.lsp.get_clients({ bufnr = bufnr })
-  if client.name == "denols" then
-    for _, client_ in pairs(active_clients) do
-      -- stop ts_ls if denols is already active
-      if client_.name == "ts_ls" then
-        client_.stop()
-      end
-    end
-  elseif client.name == "ts_ls" then
-    for _, client_ in pairs(active_clients) do
-      -- prevent ts_ls from starting if denols is already active
-      if client_.name == "denols" then
-        client.stop()
-      end
-    end
-  end
-end
 
 local util = require("lspconfig.util")
 
@@ -74,7 +57,7 @@ return {
       "williamboman/mason-lspconfig.nvim",
       opts = {
         automatic_installation = true,
-        ensure_installed = vim.list_extend(servers, { "denols", "ts_ls" }),
+        ensure_installed = servers,
       },
     },
   },
@@ -107,29 +90,25 @@ return {
 
     local capabilities = require("cmp_nvim_lsp").default_capabilities()
     for _, server in pairs(servers) do
-      require("lspconfig")[server].setup({ capabilities })
+      -- Skip ts_ls and denols here as they have specific setup below
+      if server ~= "ts_ls" and server ~= "denols" then
+        require("lspconfig")[server].setup({ capabilities })
+      end
     end
 
     -- specific setup for some servers
-    -- Enhanced TypeScript/Deno server setup with conflict resolution
+    -- TypeScript Language Server - only for non-Deno projects
     require("lspconfig")["ts_ls"].setup({
       capabilities = capabilities,
-      on_attach = no_conflict,
-      root_dir = function(fname)
-        -- Only start ts_ls if no deno config files are found
-        local deno_root = util.root_pattern("deno.json", "deno.jsonc")(fname)
-        if deno_root then
-          return nil
-        end
-        return util.root_pattern("tsconfig.json", "jsconfig.json", "package.json")(fname)
-      end,
+      root_dir = util.root_pattern("tsconfig.json", "jsconfig.json", "package.json"),
+      single_file_support = false, -- Disable single file support to prevent conflicts
     })
+    
+    -- Deno Language Server - only for Deno projects
     require("lspconfig")["denols"].setup({
       capabilities = capabilities,
-      on_attach = no_conflict,
-      root_dir = function(fname)
-        return util.root_pattern("deno.json", "deno.jsonc")(fname)
-      end,
+      root_dir = util.root_pattern("deno.json", "deno.jsonc"),
+      single_file_support = false, -- Disable single file support to prevent conflicts
       settings = {
         deno = {
           enable = true,
