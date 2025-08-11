@@ -122,22 +122,34 @@ return {
     end
 
     local lspconfig = require("lspconfig")
-    local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
+    local capabilities = require("cmp_nvim_lsp").default_capabilities()
     for _, server in pairs(servers) do
       require("lspconfig")[server].setup({ capabilities })
     end
 
     -- specific setup for some servers
     require("lspconfig")["gleam"].setup({ capabilities })
+    -- Enhanced TypeScript/Deno server setup with conflict resolution
     require("lspconfig")["ts_ls"].setup({
-      capabilities,
+      capabilities = capabilities,
       on_attach = no_conflict,
-      root_dir = lspconfig.util.root_pattern("tsconfig.json", "jsconfig.json"),
+      root_dir = function(fname)
+        local util = require("lspconfig.util")
+        -- Only start ts_ls if no deno config files are found
+        local deno_root = util.root_pattern("deno.json", "deno.jsonc")(fname)
+        if deno_root then
+          return nil
+        end
+        return util.root_pattern("tsconfig.json", "jsconfig.json", "package.json")(fname)
+      end,
     })
     require("lspconfig")["denols"].setup({
-      capabilities,
+      capabilities = capabilities,
       on_attach = no_conflict,
-      root_dir = lspconfig.util.root_pattern("deno.json", "deno.jsonc"),
+      root_dir = function(fname)
+        local util = require("lspconfig.util")
+        return util.root_pattern("deno.json", "deno.jsonc")(fname)
+      end,
       settings = {
         deno = {
           enable = true,
