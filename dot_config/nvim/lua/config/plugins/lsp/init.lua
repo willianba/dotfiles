@@ -25,8 +25,8 @@ local tools = {
   "stylua",
 }
 
-local no_conflict = function(client)
-  local active_clients = vim.lsp.get_clients()
+local no_conflict = function(client, bufnr)
+  local active_clients = vim.lsp.get_clients({ bufnr = bufnr })
   if client.name == "denols" then
     for _, client_ in pairs(active_clients) do
       -- stop ts_ls if denols is already active
