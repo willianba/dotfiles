@@ -1,7 +1,6 @@
 local servers = {
   "bashls",
   "cssls",
-  "denols",
   "gopls",
   "html",
   "jsonls",
@@ -9,7 +8,6 @@ local servers = {
   "marksman",
   "rust_analyzer",
   "terraformls",
-  "ts_ls",
   "yamlls",
 }
 
@@ -76,7 +74,7 @@ return {
       "williamboman/mason-lspconfig.nvim",
       opts = {
         automatic_installation = true,
-        ensure_installed = servers,
+        ensure_installed = vim.list_extend(servers, { "denols", "ts_ls" }),
       },
     },
   },
