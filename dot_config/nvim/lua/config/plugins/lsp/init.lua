@@ -1,6 +1,20 @@
 local servers = {
   "bashls",
   "cssls",
+  "eslint",
+  "gopls",
+  "html",
+  "jsonls",
+  "lua_ls",
+  "marksman",
+  "rust_analyzer",
+  "terraform-ls",
+  "yamlls",
+}
+
+local all_servers = {
+  "bashls",
+  "cssls",
   "denols",
   "eslint",
   "gopls",
@@ -76,7 +90,7 @@ return {
       "williamboman/mason-lspconfig.nvim",
       opts = {
         automatic_installation = true,
-        ensure_installed = servers,
+        ensure_installed = all_servers,
       },
     },
   },
