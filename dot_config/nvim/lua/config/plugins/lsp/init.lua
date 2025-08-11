@@ -1,35 +1,19 @@
 local servers = {
   "bashls",
   "cssls",
-  "eslint",
-  "gopls",
-  "html",
-  "jsonls",
-  "lua_ls",
-  "marksman",
-  "rust_analyzer",
-  "terraform-ls",
-  "yamlls",
-}
-
-local all_servers = {
-  "bashls",
-  "cssls",
   "denols",
-  "eslint",
   "gopls",
   "html",
   "jsonls",
   "lua_ls",
   "marksman",
   "rust_analyzer",
-  "terraform-ls",
+  "terraformls",
   "ts_ls",
   "yamlls",
 }
 
 local tools = {
-  "deno",
   "eslint_d",
   "gofumpt",
   "goimports",
@@ -57,6 +41,8 @@ local no_conflict = function(client, bufnr)
     end
   end
 end
+
+local util = require("lspconfig.util")
 
 return {
   "neovim/nvim-lspconfig",
@@ -90,7 +76,7 @@ return {
       "williamboman/mason-lspconfig.nvim",
       opts = {
         automatic_installation = true,
-        ensure_installed = all_servers,
+        ensure_installed = servers,
       },
     },
   },
@@ -121,20 +107,17 @@ return {
       return orig_util_open_floating_preview(contents, syntax, opts, ...)
     end
 
-    local lspconfig = require("lspconfig")
     local capabilities = require("cmp_nvim_lsp").default_capabilities()
     for _, server in pairs(servers) do
       require("lspconfig")[server].setup({ capabilities })
     end
 
     -- specific setup for some servers
-    require("lspconfig")["gleam"].setup({ capabilities })
     -- Enhanced TypeScript/Deno server setup with conflict resolution
     require("lspconfig")["ts_ls"].setup({
       capabilities = capabilities,
       on_attach = no_conflict,
       root_dir = function(fname)
-        local util = require("lspconfig.util")
         -- Only start ts_ls if no deno config files are found
         local deno_root = util.root_pattern("deno.json", "deno.jsonc")(fname)
         if deno_root then
@@ -147,7 +130,6 @@ return {
       capabilities = capabilities,
       on_attach = no_conflict,
       root_dir = function(fname)
-        local util = require("lspconfig.util")
         return util.root_pattern("deno.json", "deno.jsonc")(fname)
       end,
       settings = {
