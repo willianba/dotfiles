@@ -1,7 +1,6 @@
 local servers = {
   "bashls",
   "cssls",
-  "denols",
   "gopls",
   "html",
   "jsonls",
@@ -9,7 +8,6 @@ local servers = {
   "marksman",
   "rust_analyzer",
   "terraformls",
-  "ts_ls",
   "yamlls",
 }
 
@@ -21,6 +19,12 @@ local tools = {
   "markdownlint",
   "prettierd",
   "stylua",
+}
+
+-- Servers with custom configuration (not auto-installed by mason-lspconfig)
+local custom_servers = {
+  "ts_ls",
+  "denols",
 }
 
 local util = require("lspconfig.util")
@@ -43,8 +47,18 @@ return {
           },
         })
         local registry = require("mason-registry")
+        -- Install tools
         for _, tool in pairs(tools) do
           local package = registry.get_package(tool)
+          if not package:is_installed() then
+            print(string.format("[mason] installing %s", package.name))
+            package:install()
+            print(string.format("[mason] %s installed", package.name))
+          end
+        end
+        -- Install custom servers
+        for _, server in pairs(custom_servers) do
+          local package = registry.get_package(server)
           if not package:is_installed() then
             print(string.format("[mason] installing %s", package.name))
             package:install()
@@ -90,10 +104,7 @@ return {
 
     local capabilities = require("cmp_nvim_lsp").default_capabilities()
     for _, server in pairs(servers) do
-      -- Skip ts_ls and denols here as they have specific setup below
-      if server ~= "ts_ls" and server ~= "denols" then
-        require("lspconfig")[server].setup({ capabilities })
-      end
+      require("lspconfig")[server].setup({ capabilities = capabilities })
     end
 
     -- specific setup for some servers
