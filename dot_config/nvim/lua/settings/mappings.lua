@@ -1,4 +1,4 @@
-local util = require("config.settings.util")
+local util = require("settings.util")
 
 vim.keymap.set("n", "<Esc>", "<cmd>noh<cr>")
 vim.keymap.set("n", "<C-c>", "<cmd>%y+<cr>")
