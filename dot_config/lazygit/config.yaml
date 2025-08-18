@@ -28,5 +28,4 @@ customCommands:
     command: "gh pr create -a @me -B {{ .Form.Branch }} -t {{ .Form.Title | quote }}"
     context: "localBranches"
     loadingText: "Creating Pull Request"
-    stream: true
-    subprocess: true
+    output: terminal

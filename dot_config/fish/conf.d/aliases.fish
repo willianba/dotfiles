@@ -1,6 +1,6 @@
 # Basic aliases
 alias reload="exec fish"
-alias lg="lazygit"
+alias lg="lazygit -ucf ~/.config/lazygit/config.yaml"
 alias ld="lazydocker"
 alias z="zoxide"
 
