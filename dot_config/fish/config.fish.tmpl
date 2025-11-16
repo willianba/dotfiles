@@ -101,6 +101,11 @@ end
 if test -d $HOME/.krew/bin
   fish_add_path $HOME/.krew/bin
 end
+
+# Mise x64 for Apple Silicon
+if test -f $HOME/.local/bin/mise-x64
+  $HOME/.local/bin/mise-x64 activate fish | source
+end
 {{- end }}
 
 # Fish stuff
@@ -128,3 +133,4 @@ set -U fish_greeting ""
 if command -v zoxide >/dev/null 2>&1
   zoxide init fish --cmd cd | source
 end
+
