@@ -1,8 +1,6 @@
 ---
 description: "Documentation authoring agent"
 mode: subagent
-# model: google/gemini-2.5-flash
-model: anthropic/claude-sonnet-4.5-20250929
 temperature: 0.2
 tools:
   read: true

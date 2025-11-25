@@ -1,7 +1,6 @@
 ---
 description: "Executes coding subtasks in sequence, ensuring completion as specified"
 mode: subagent
-model: anthropic/claude-sonnet-4.5-20250929
 temperature: 0
 tools:
   read: true

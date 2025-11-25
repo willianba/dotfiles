@@ -1,7 +1,6 @@
 ---
 description: "Test authoring and TDD agent"
 mode: subagent
-model: anthropic/claude-sonnet-4.5-20250929
 temperature: 0.1
 tools:
   read: true
