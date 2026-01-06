@@ -1,5 +1,8 @@
 return {
   "zbirenbaum/copilot.lua",
+  dependencies = {
+    "copilotlsp-nvim/copilot-lsp",
+  },
   event = "BufReadPost",
   config = function()
     require("copilot").setup({
@@ -11,7 +14,7 @@ return {
           prev = "<M-,>",
         },
       },
-      copilot_node_command = vim.fn.expand("$HOME") .. "/.local/share/mise/installs/node/20/bin/node",
+      copilot_node_command = vim.fn.expand("$HOME") .. "/.local/share/mise/installs/node/25/bin/node",
       server_opts_overrides = {
         settings = {
           advanced = {
