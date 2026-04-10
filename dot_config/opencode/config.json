@@ -1,17 +1,31 @@
 {
   "$schema": "https://opencode.ai/config.json",
   "theme": "catppuccin",
-  "model": "anthropic/claude-sonnet-4.5-20250929",
   "autoupdate": true,
   "mcp": {
     "serena": {
       "type": "local",
-      "command": ["uvx", "--from", "git+https://github.com/oraios/serena", "serena", "start-mcp-server", "--context", "ide-assistant", "--project", "."],
+      "command": [
+        "uvx",
+        "--from",
+        "git+https://github.com/oraios/serena",
+        "serena",
+        "start-mcp-server",
+        "--context",
+        "ide-assistant",
+        "--project",
+        "."
+      ],
       "enabled": true
     },
     "github": {
       "type": "local",
-      "command": ["deno", "run", "--allow-net", "npm:@modelcontextprotocol/server-github"],
+      "command": [
+        "deno",
+        "run",
+        "--allow-net",
+        "npm:@modelcontextprotocol/server-github"
+      ],
       "enabled": true,
       "environment": {
         "GITHUB_PERSONAL_ACCESS_TOKEN": "$GITHUB_TOKEN"
@@ -19,12 +33,22 @@
     },
     "memory": {
       "type": "local",
-      "command": ["deno", "run", "--allow-env", "npm:@modelcontextprotocol/server-memory"],
+      "command": [
+        "deno",
+        "run",
+        "--allow-env",
+        "npm:@modelcontextprotocol/server-memory"
+      ],
       "enabled": true
     },
     "sequential-thinking": {
       "type": "local",
-      "command": ["deno", "run", "--allow-env", "npm:@modelcontextprotocol/server-sequential-thinking"],
+      "command": [
+        "deno",
+        "run",
+        "--allow-env",
+        "npm:@modelcontextprotocol/server-sequential-thinking"
+      ],
       "enabled": true
     }
   }
