@@ -85,6 +85,7 @@ outer.right =      5
 
 # Open apps
 alt-t = 'exec-and-forget open -n /Applications/WezTerm.app'
+alt-e = 'exec-and-forget open ~/.'
 
 # Utilities
 cmd-h = [] # Disable "hide application"
