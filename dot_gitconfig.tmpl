@@ -1,10 +1,19 @@
 [user]
   name = Willian Alves
-  email = wba.alves@gmail.com
   username = willianba
+{{- if eq .chezmoi.os "darwin" }}
+  email = willian.alves@niche.com
+{{else}}
+  email = wba.alves@gmail.com
+{{ end -}}
 
 [credential]
   helper = store
+
+{{- if eq .chezmoi.os "darwin" }}
+[url "ssh://git@github.com/"]
+  insteadOf = https://github.com/
+{{ end -}}
 
 # clearly makes git better
 

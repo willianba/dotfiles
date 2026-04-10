@@ -12,6 +12,9 @@ if test -d $HOME/go/bin
   set -gx GOBIN $GOPATH/bin
   set -gx GO111MODULE on
   fish_add_path $GOBIN
+  {{if eq .chezmoi.os "darwin" -}}
+  set -gx GOPRIVATE github.com/nicheinc
+  {{- end}}
 end
 
 ## Deno
@@ -106,6 +109,8 @@ end
 if test -f $HOME/.local/bin/mise-x64
   $HOME/.local/bin/mise-x64 activate fish | source
 end
+
+set -g VAULT_ADDR https://vault.niche.support
 {{- end }}
 
 # Fish stuff
