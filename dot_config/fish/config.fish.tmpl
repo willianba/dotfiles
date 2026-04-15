@@ -39,7 +39,6 @@ if test -f $HOME/.local/bin/mise
   $HOME/.local/bin/mise activate fish | source
 end
 
-
 ## fzf (if available)
 if command -v fzf >/dev/null 2>&1
   fzf --fish | source
@@ -48,47 +47,6 @@ if command -v fzf >/dev/null 2>&1
   set -gx FZF_CTRL_T_COMMAND "$FZF_DEFAULT_COMMAND"
   set -gx FZF_ALT_C_COMMAND "fd --type=d --hidden --strip-cwd-prefix --exclude .git"
 end
-
-{{ if eq .chezmoi.os "linux" -}}
-# Brew
-if test -d /home/linuxbrew/.linuxbrew/bin
-  eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-end
-
-## Bun
-if test -d $HOME/.bun/bin
-  set -gx BUN_INSTALL $HOME/.bun
-  fish_add_path $BUN_INSTALL/bin
-end
-
-# Goose default color scheme
-set -gx GOOSE_CLI_THEME dark
-
-# Proto
-if test -d $HOME/.proto
-  set -gx PROTO_HOME $HOME/.proto
-  fish_add_path $PROTO_HOME/shims
-  fish_add_path $PROTO_HOME/bin
-end
-
-# cmake
-# should the version not be hardcoded?
-if test -d /opt/cmake-3.30.0-linux-x86_64/bin
-  set -gx CMAKE_HOME /opt/cmake-3.30.0-linux-x86_64
-  fish_add_path $CMAKE_HOME/bin
-end
-
-# Turso
-if test -d $HOME/.turso
-  set -gx TURSO_HOME $HOME/.turso
-  fish_add_path $TURSO_HOME/bin
-end
-{{- end -}}
-
-{{ if eq .chezmoi.os "darwin" -}}
-# Goose default color scheme
-set -gx GOOSE_CLI_THEME light
-set -gx XDG_CONFIG_HOME "$HOME/.config"
 
 ## Bun
 if test -d $HOME/.bun/bin
@@ -100,6 +58,36 @@ if test -d $HOME/.bun/bin
   end
 end
 
+# Proto
+if test -d $HOME/.proto
+  set -gx PROTO_HOME $HOME/.proto
+  fish_add_path $PROTO_HOME/shims
+  fish_add_path $PROTO_HOME/bin
+end
+
+# Turso
+if test -d $HOME/.turso
+  set -gx TURSO_HOME $HOME/.turso
+  fish_add_path $TURSO_HOME/bin
+end
+
+{{ if eq .chezmoi.os "linux" -}}
+# Brew
+if test -d /home/linuxbrew/.linuxbrew/bin
+  eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+end
+
+# cmake
+# should the version not be hardcoded?
+if test -d /opt/cmake-3.30.0-linux-x86_64/bin
+  set -gx CMAKE_HOME /opt/cmake-3.30.0-linux-x86_64
+  fish_add_path $CMAKE_HOME/bin
+end
+{{- end -}}
+
+{{ if eq .chezmoi.os "darwin" -}}
+set -gx XDG_CONFIG_HOME "$HOME/.config"
+
 ## kubectl krew
 if test -d $HOME/.krew/bin
   fish_add_path $HOME/.krew/bin
@@ -110,7 +98,7 @@ if test -f $HOME/.local/bin/mise-x64
   $HOME/.local/bin/mise-x64 activate fish | source
 end
 
-set -g VAULT_ADDR https://vault.niche.support
+set -gx VAULT_ADDR https://vault.niche.support
 {{- end }}
 
 # Fish stuff
