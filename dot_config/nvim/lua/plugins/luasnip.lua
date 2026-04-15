@@ -2,6 +2,7 @@ local M = {
   "L3MON4D3/LuaSnip",
   event = "BufReadPost",
   dependencies = { "rafamadriz/friendly-snippets" },
+  enabled = false,
 }
 
 M.config = function()
@@ -14,7 +15,6 @@ M.config = function()
 
   luasnip.filetype_extend("typescriptreact", { "html" })
   luasnip.filetype_extend("javascriptreact", { "html" })
-  luasnip.filetype_extend("astro", { "html" })
 
   require("luasnip.loaders.from_vscode").lazy_load()
 

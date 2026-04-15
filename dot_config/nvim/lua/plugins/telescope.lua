@@ -1,6 +1,6 @@
 local project_files = function()
   local opts = {}
-  if vim.loop.fs_stat(".git") then
+  if vim.uv.fs_stat(".git") then
     opts.show_untracked = true
     require("telescope.builtin").git_files(opts)
   else

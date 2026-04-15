@@ -6,25 +6,22 @@ vim.api.nvim_create_autocmd("LspAttach", {
   end,
 })
 
-for name, icon in pairs(require("settings.icons").diagnostics) do
-  name = "DiagnosticSign" .. name
-  vim.fn.sign_define(name, { text = icon, texthl = name, numhl = "" })
-end
-
+local icons = require("settings.icons").diagnostics
 vim.diagnostic.config({
+  signs = {
+    text = {
+      [vim.diagnostic.severity.ERROR] = icons.Error,
+      [vim.diagnostic.severity.WARN] = icons.Warn,
+      [vim.diagnostic.severity.INFO] = icons.Info,
+      [vim.diagnostic.severity.HINT] = icons.Hint,
+    },
+  },
   underline = true,
   update_in_insert = false,
   virtual_text = { spacing = 2, prefix = "●" },
   severity_sort = true,
   float = {
-    border = "single",
+    border = "rounded",
     source = true,
   },
 })
-
-local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
-function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
-  opts = opts or {}
-  opts.border = "single"
-  return orig_util_open_floating_preview(contents, syntax, opts, ...)
-end

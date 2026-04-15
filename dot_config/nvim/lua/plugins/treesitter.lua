@@ -1,6 +1,5 @@
 return {
   "nvim-treesitter/nvim-treesitter",
-  branch = "master",
   build = ":TSUpdate",
   lazy = false,
   dependencies = {
@@ -16,31 +15,29 @@ return {
     },
   },
   config = function()
-    require("nvim-treesitter.configs").setup({
-      ensure_installed = {
-        "bash",
-        "css",
-        "gleam",
-        "html",
-        "javascript",
-        "json",
-        "lua",
-        "markdown",
-        "rust",
-        "typescript",
-        "yaml",
-        "vim",
-      },
-      autotag = {
-        enable = true,
-      },
-      highlight = {
-        enable = true,
-        use_languagetree = true,
-      },
-      indent = {
-        enable = true,
-      },
-    })
+    local ensureInstalled = {
+      "bash",
+      "css",
+      "go",
+      "html",
+      "javascript",
+      "json",
+      "lua",
+      "markdown",
+      "rust",
+      "sql",
+      "svelte",
+      "typescript",
+      "yaml",
+      "vim",
+    }
+    local alreadyInstalled = require("nvim-treesitter.config").get_installed()
+    local parsersToInstall = vim
+      .iter(ensureInstalled)
+      :filter(function(parser)
+        return not vim.tbl_contains(alreadyInstalled, parser)
+      end)
+      :totable()
+    require("nvim-treesitter").install(parsersToInstall)
   end,
 }

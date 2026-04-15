@@ -8,6 +8,7 @@ local servers = {
   "lua_ls",
   "marksman",
   "rust_analyzer",
+  "sqlls",
   "terraformls",
   "vtsls",
   "yamlls",
@@ -61,6 +62,16 @@ return {
 
         vim.lsp.config("vtsls", {
           workspace_required = true,
+        })
+
+        vim.lsp.config("rust_analyzer", {
+          settings = {
+            ["rust-analyzer"] = {
+              checkOnSave = {
+                command = "clippy",
+              },
+            },
+          },
         })
       end,
     },
