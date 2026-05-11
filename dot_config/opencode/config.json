@@ -21,10 +21,8 @@
     "github": {
       "type": "local",
       "command": [
-        "deno",
-        "run",
-        "--allow-net",
-        "npm:@modelcontextprotocol/server-github"
+        "bunx",
+        "@modelcontextprotocol/server-github"
       ],
       "enabled": true,
       "environment": {
@@ -34,20 +32,16 @@
     "memory": {
       "type": "local",
       "command": [
-        "deno",
-        "run",
-        "--allow-env",
-        "npm:@modelcontextprotocol/server-memory"
+        "bunx",
+        "@modelcontextprotocol/server-memory"
       ],
       "enabled": true
     },
     "sequential-thinking": {
       "type": "local",
       "command": [
-        "deno",
-        "run",
-        "--allow-env",
-        "npm:@modelcontextprotocol/server-sequential-thinking"
+        "bunx",
+        "@modelcontextprotocol/server-sequential-thinking"
       ],
       "enabled": true
     }
