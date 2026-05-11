@@ -24,6 +24,8 @@ local tools = {
   "stylua",
 }
 
+local capabilities = require("blink.cmp").get_lsp_capabilities()
+
 return {
   "mason-org/mason-lspconfig.nvim",
   opts = {
@@ -55,16 +57,23 @@ return {
     {
       "neovim/nvim-lspconfig",
       config = function()
+        vim.lsp.config("*", {
+          capabilities = capabilities,
+        })
+
         vim.lsp.config("denols", {
+          capabilities = capabilities,
           root_markers = { "deno.json", "deno.jsonc" },
           workspace_required = true,
         })
 
         vim.lsp.config("vtsls", {
+          capabilities = capabilities,
           workspace_required = true,
         })
 
         vim.lsp.config("rust_analyzer", {
+          capabilities = capabilities,
           settings = {
             ["rust-analyzer"] = {
               checkOnSave = {

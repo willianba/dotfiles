@@ -16,10 +16,6 @@ function M.on_attach(client, buffer)
   self:map("<leader>ca", vim.lsp.buf.code_action, { mode = { "n", "v" }, has = "codeAction" })
   self:map("<leader>ra", vim.lsp.buf.rename, { has = "rename" })
 
-  if client.name == "ts_ls" and pcall(require, "typescript") then
-    self:map("<leader>co", "TypescriptOrganizeImports")
-    self:map("<leader>cR", "TypescriptRenameFile")
-  end
 end
 
 function M.new(client, buffer)
@@ -27,7 +23,11 @@ function M.new(client, buffer)
 end
 
 function M:has(cap)
-  return self.client.server_capabilities[cap .. "Provider"]
+  if not self.client or not self.client.server_capabilities then
+    return false
+  end
+
+  return self.client.server_capabilities[cap .. "Provider"] ~= nil
 end
 
 function M:map(lhs, rhs, opts)
