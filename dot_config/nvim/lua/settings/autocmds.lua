@@ -1,40 +1,39 @@
 local autocmd = vim.api.nvim_create_autocmd
+local augroup = vim.api.nvim_create_augroup
+
+local user_autocmds = augroup("user_autocmds", { clear = true })
 
 autocmd("InsertEnter", {
+  group = user_autocmds,
   callback = function()
-    vim.opt.relativenumber = false
+    vim.wo.relativenumber = false
   end,
 })
 
 autocmd("InsertLeave", {
+  group = user_autocmds,
   callback = function()
-    vim.opt.relativenumber = true
+    vim.wo.relativenumber = vim.wo.number
   end,
 })
 
 -- fix terraform syntax highlighting
 autocmd("BufEnter", {
+  group = user_autocmds,
   pattern = "*.tf",
   callback = function()
-    vim.opt.filetype = "terraform"
+    vim.bo.filetype = "terraform"
   end,
 })
 
 autocmd("VimResized", {
+  group = user_autocmds,
   pattern = "*",
   command = "tabdo wincmd =",
 })
 
-autocmd("FileType", {
-  callback = function()
-    -- Enable treesitter highlighting and disable regex syntax
-    pcall(vim.treesitter.start)
-    -- Enable treesitter-based indentation
-    vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
-  end,
-})
-
 autocmd("User", {
+  group = user_autocmds,
   pattern = "LazyVimStarted",
   callback = function()
     local stats = require("lazy").stats()
