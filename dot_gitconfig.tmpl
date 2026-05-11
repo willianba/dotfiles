@@ -10,11 +10,6 @@
 [credential]
   helper = store
 
-{{- if eq .chezmoi.os "darwin" }}
-[url "ssh://git@github.com/"]
-  insteadOf = https://github.com/
-{{ end -}}
-
 # clearly makes git better
 
 [column]
