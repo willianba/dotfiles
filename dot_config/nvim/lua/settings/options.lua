@@ -52,12 +52,9 @@ opt.whichwrap:append("<>[]hl")
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
--- built-in nvim autocomplete options
-opt.autocomplete = true
 opt.pumborder = "rounded"
 opt.pummaxwidth = 40
-opt.completeopt = "menu,menuone,noselect,popup"
+opt.completeopt = "menu,menuone,noselect"
 opt.winborder = "rounded"
-opt.complete = ".^5,t^3,w"
 
 vim.cmd("filetype plugin indent on")

@@ -1,8 +1,6 @@
 return {
   "saghen/blink.cmp",
-  dependencies = { "rafamadriz/friendly-snippets" },
   version = "1.*",
-  enabled = false,
   opts = {
     keymap = {
       preset = "enter",
@@ -24,7 +22,7 @@ return {
       nerd_font_variant = "normal",
     },
     sources = {
-      default = { "lsp", "snippets", "buffer", "path" },
+      default = { "lsp", "buffer", "path" },
     },
     fuzzy = { implementation = "prefer_rust_with_warning" },
   },
