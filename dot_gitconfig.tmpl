@@ -60,6 +60,13 @@
   # conflictstyle = zdiff3
 [pull]
   # rebase = true
+{{- if eq .chezmoi.os "darwin" }}
+[filter "lfs"]
+  clean = git-lfs clean -- %f
+  smudge = git-lfs smudge -- %f
+  process = git-lfs filter-process
+  required = true
+{{ end -}}
 
 {{- if eq .chezmoi.os "windows" }}
 [safe]

@@ -1,0 +1,17 @@
+# macOS
+.DS_Store
+
+# 3rd party config
+.config/
+
+# Logs
+*.log
+
+# Env files
+.env
+
+# LLM
+.serena/
+.omo/
+docs/superpowers/
+

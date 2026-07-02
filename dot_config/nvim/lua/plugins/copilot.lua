@@ -14,7 +14,7 @@ return {
           prev = "<M-,>",
         },
       },
-      copilot_node_command = vim.fn.expand("$HOME") .. "/.local/share/mise/installs/node/25/bin/node",
+      copilot_node_command = vim.fn.expand("$HOME") .. "/.local/share/mise/installs/node/26/bin/node",
       server_opts_overrides = {
         settings = {
           advanced = {

@@ -1,0 +1,10 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "plugin": [
+    "oh-my-openagent@latest",
+    {{- if eq .chezmoi.os "darwin"}}
+    "opencode-claude-auth@latest",
+    {{ end -}}
+    "context-mode@latest"
+  ]
+}
