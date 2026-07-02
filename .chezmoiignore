@@ -11,10 +11,22 @@ TODO.md
 .config/whkdrc
 {{ end }}
 
+{{ if eq .chezmoi.os "darwin" }}
+.config/hypr/
+.config/scripts/
+.config/komorebi/
+.config/yasb/
+.config/whkdrc
+{{ end }}
+
 {{ if eq .chezmoi.os "windows" }}
-.config/fish
+.config/starship.toml
+.config/fish/
+.config/hypr/
 .config/lazygit/
+.config/mise/
 .config/nvim/
+.config/scripts/
 .config/superfile/
 {{ end }}
 
