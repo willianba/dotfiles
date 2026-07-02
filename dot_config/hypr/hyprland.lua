@@ -1,0 +1,8 @@
+require("autostart")
+require("monitors")
+require("envvars")
+require("config")
+require("animations")
+require("colors")
+require("bindings")
+require("windowrules")
