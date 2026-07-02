@@ -1,3 +1,4 @@
-- should install many CLI dependencies, such as ripgrep, fd, fzf, docker, and so on (install.sh is outdated)
-- create a list of cargo crates i have installed (such as lsd, eza, and so on)
-- retrieve brewfile from macos
+- prepare a install command that install a bunch of things i use
+    - needs to be mac and linux aware
+    - most of the tools are shared
+    - brew should not be used on linux

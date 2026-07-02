@@ -1,3 +1,5 @@
-# Install
+# README
 
-`sh -c "$(curl -fsSL https://raw.github.com/willianba/dotfiles/master/install.sh)"`
+Dotfiles managed with chezmoi. For a quick start, install chezmoi and run:
+
+`chezmoi init https://github.com/willianba/dotfiles.git`
