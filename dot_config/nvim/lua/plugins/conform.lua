@@ -17,20 +17,6 @@ end, {
   desc = "Enable format on save",
 })
 
-local function select_formatter()
-  local deno_file = vim.fn.glob("./deno.json")
-  if deno_file ~= "" then
-    return { "deno_fmt" }
-  end
-
-  local node_file = vim.fn.glob("./package.json")
-  if node_file ~= "" then
-    return { "prettierd" }
-  end
-
-  return { "prettierd" }
-end
-
 return {
   "stevearc/conform.nvim",
   event = "BufWritePre",
@@ -52,18 +38,21 @@ return {
     end,
     formatters_by_ft = {
       lua = { "stylua" },
-      javascript = select_formatter(),
-      typescript = select_formatter(),
-      javascriptreact = select_formatter(),
-      typescriptreact = select_formatter(),
+      javascript = { "biome_check" },
+      typescript = { "biome_check" },
+      javascriptreact = { "biome_check" },
+      typescriptreact = { "biome_check" },
+      svelte = { "prettierd" },
       rust = { "rustfmt" },
       terraform = { "terraform_fmt" },
       go = { "gofumpt", "gofmt" },
     },
     formatters = {
-      deno_fmt = {
+      biome_check = {
+        command = "bunx",
+        args = { "biome", "check", "--write", "--stdin-file-path", "$FILENAME" },
         condition = function()
-          return vim.fn.glob("deno.json", 0, 1) ~= ""
+          return vim.fs.find({ "biome.json", "biome.jsonc" }, { upward = true, stop = vim.env.HOME })[1] ~= nil
         end,
       },
       stylua = {
