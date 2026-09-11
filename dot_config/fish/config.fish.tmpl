@@ -9,9 +9,11 @@ fish_add_path $HOME/.local/bin
 ## GO
 if test -d $HOME/go/bin
   set -gx GOPATH $HOME/go
-  set -gx GOBIN $GOPATH/bin
   set -gx GO111MODULE on
-  fish_add_path $GOBIN
+  if test -d $GOPATH/bin
+    set -gx GOBIN $GOPATH/bin
+    fish_add_path $GOBIN
+  end
   {{if eq .chezmoi.os "darwin" -}}
   set -gx GOPRIVATE github.com/nicheinc
   {{- end}}
