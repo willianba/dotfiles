@@ -44,6 +44,6 @@ printf "Wallpaper : %s\n" "$WALLPAPER"
 printf "Original  : #%s\n" "$HEX"
 printf "Corrected : #%s\n" "$CORRECTED_HEX"
 
-openrgb -d 0 -m static -b 70 -c $CORRECTED_HEX &
-openrgb -d 2 -m direct -c $CORRECTED_HEX &
+openrgb -d "B550M AORUS ELITE" -z 1 -sz 60 -m static -b 70 -c $CORRECTED_HEX &
+openrgb -d "HyperX DuoCast" -m direct -c $CORRECTED_HEX &
 wait
