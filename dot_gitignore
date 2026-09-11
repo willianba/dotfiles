@@ -13,5 +13,7 @@
 # LLM
 .serena/
 .omo/
+.superpowers/
 docs/superpowers/
-
+.codegraph
+.sisyphus/
