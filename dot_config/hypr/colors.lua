@@ -1,10 +1,10 @@
 local theme = {
-	primary = "rgba(237, 193, 72, 1.0)",
-	secondary = "rgba(214, 197, 160, 1.0)",
-	error = "rgba(255, 180, 171, 1.0)",
-	tertiary = "rgba(174, 207, 172, 1.0)",
-	surface = "rgba(21, 19, 14, 1.0)",
-	surface_lowest = "rgba(16, 14, 9, 1.0)",
+	primary = "rgba(156, 65, 59, 1.0)",
+	secondary = "rgba(119, 86, 83, 1.0)",
+	error = "rgba(186, 26, 26, 1.0)",
+	tertiary = "rgba(114, 91, 46, 1.0)",
+	surface = "rgba(255, 248, 247, 1.0)",
+	surface_lowest = "rgba(255, 255, 255, 1.0)",
 }
 
 hl.config({
