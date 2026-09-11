@@ -5,10 +5,28 @@
     "oh-my-openagent@latest",
     {{- if eq .chezmoi.os "darwin"}}
     "opencode-claude-auth@latest",
-    {{ end -}}
+    {{ end }}
     "context-mode@latest"
   ],
   "mcp": {
+    {{- if eq .chezmoi.os "linux"}}
+    "open-design": {
+      "type": "local",
+      "command": [
+        "open-design",
+        "mcp",
+        "--daemon-url",
+        "http://127.0.0.1:7456"
+      ],
+      "enabled": true
+    },
+    {{ end -}}
+    {{- if eq .chezmoi.os "darwin"}}
+    "atlassian": {
+      "type": "remote",
+      "url": "https://mcp.atlassian.com/v2/mcp"
+    },
+    {{ end -}}
     "serena": {
       "type": "local",
       "command": [
@@ -51,9 +69,5 @@
       ],
       "enabled": true
     },
-    "atlassian": {
-      "type": "remote",
-      "url": "https://mcp.atlassian.com/v2/mcp"
-    }
   }
 }
