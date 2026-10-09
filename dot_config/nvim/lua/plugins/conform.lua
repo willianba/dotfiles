@@ -17,6 +17,35 @@ end, {
   desc = "Enable format on save",
 })
 
+-- Search upward from the buffer's own directory (not the cwd) for a config file.
+-- `ctx.dirname` is provided by conform; fall back to the cwd when absent.
+local function has_config_upward(names)
+  return function(_, ctx)
+    local from = ctx and ctx.dirname or vim.fn.getcwd()
+    return vim.fs.find(names, { upward = true, path = from, stop = vim.env.HOME })[1] ~= nil
+  end
+end
+
+local biome_config = { "biome.json", "biome.jsonc" }
+
+local prettier_config = {
+  ".prettierrc",
+  ".prettierrc.json",
+  ".prettierrc.json5",
+  ".prettierrc.yml",
+  ".prettierrc.yaml",
+  ".prettierrc.toml",
+  ".prettierrc.js",
+  ".prettierrc.cjs",
+  ".prettierrc.mjs",
+  "prettier.config.js",
+  "prettier.config.cjs",
+  "prettier.config.mjs",
+  "prettier.config.ts",
+}
+
+local formatters = { "biome_check", "prettierd", stop_after_first = true }
+
 return {
   "stevearc/conform.nvim",
   event = "BufWritePre",
@@ -38,10 +67,12 @@ return {
     end,
     formatters_by_ft = {
       lua = { "stylua" },
-      javascript = { "biome_check" },
-      typescript = { "biome_check" },
-      javascriptreact = { "biome_check" },
-      typescriptreact = { "biome_check" },
+      javascript = formatters,
+      typescript = formatters,
+      javascriptreact = formatters,
+      typescriptreact = formatters,
+      json = formatters,
+      jsonc = formatters,
       svelte = { "prettierd" },
       rust = { "rustfmt" },
       terraform = { "terraform_fmt" },
@@ -51,9 +82,12 @@ return {
       biome_check = {
         command = "bunx",
         args = { "biome", "check", "--write", "--stdin-file-path", "$FILENAME" },
-        condition = function()
-          return vim.fs.find({ "biome.json", "biome.jsonc" }, { upward = true, stop = vim.env.HOME })[1] ~= nil
-        end,
+        condition = has_config_upward(biome_config),
+      },
+      prettierd = {
+        -- Without a project config prettierd would impose its own defaults
+        -- (2 spaces), so only run it where the project actually configures it.
+        condition = has_config_upward(prettier_config),
       },
       stylua = {
         extra_args = {

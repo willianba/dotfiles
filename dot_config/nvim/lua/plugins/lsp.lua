@@ -61,6 +61,14 @@ return {
           capabilities = capabilities,
         })
 
+        -- tsserver formats with Neovim's own 'expandtab'/'shiftwidth' rather than
+        -- the project's prettier/biome config, so it silently rewrites tabs to
+        -- spaces whenever conform falls back to the LSP. Take it out of the running.
+        local function disable_lsp_formatting(client)
+          client.server_capabilities.documentFormattingProvider = false
+          client.server_capabilities.documentRangeFormattingProvider = false
+        end
+
         vim.lsp.config("denols", {
           capabilities = capabilities,
           root_markers = { "deno.json", "deno.jsonc" },
@@ -70,6 +78,7 @@ return {
         vim.lsp.config("vtsls", {
           capabilities = capabilities,
           workspace_required = true,
+          on_attach = disable_lsp_formatting,
         })
 
         vim.lsp.config("rust_analyzer", {
